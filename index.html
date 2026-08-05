@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karen Arias — Ingeniería Biomédica & IA en Salud</title>
+<meta name="description" content="Karen Arias, ingeniera biomédica en Quito, Ecuador. Mantenimiento y gestión de equipos médicos, soluciones de IA aplicadas a imágenes médicas y consultoría técnica.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F5F7F6;
+    --paper-alt:#EBF0EE;
+    --ink:#0E1F1B;
+    --ink-soft:#4B615B;
+    --teal:#123B33;
+    --teal-line:#1B4B41;
+    --pulse:#00A868;
+    --pulse-soft:#CFEEDF;
+    --amber:#D98A2B;
+    --line:#D6E0DC;
+    --white:#FFFFFF;
+    --font-d:'Space Grotesk',sans-serif;
+    --font-b:'IBM Plex Sans',sans-serif;
+    --font-m:'IBM Plex Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--font-b);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  img,svg{display:block;max-width:100%;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 32px;}
+  .eyebrow{
+    font-family:var(--font-m);
+    font-size:12.5px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--pulse);
+    display:flex;align-items:center;gap:10px;
+    margin-bottom:18px;
+  }
+  .eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--pulse);box-shadow:0 0 0 4px var(--pulse-soft);}
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(245,247,246,.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 32px;max-width:1120px;margin:0 auto;}
+  .logo{display:flex;align-items:center;gap:10px;font-family:var(--font-d);font-weight:600;font-size:18px;letter-spacing:.01em;}
+  .logo-mark{width:26px;height:26px;flex-shrink:0;}
+  .nav-links{display:flex;align-items:center;gap:34px;font-size:14.5px;}
+  .nav-links a{color:var(--ink-soft);transition:color .2s;position:relative;}
+  .nav-links a:hover{color:var(--teal);}
+  .nav-cta{
+    font-family:var(--font-m);font-size:13.5px;
+    background:var(--teal);color:var(--paper);
+    padding:9px 18px;border-radius:3px;
+    border:1px solid var(--teal);
+  }
+  .nav-cta:hover{background:var(--ink);}
+  .burger{display:none;background:none;border:none;cursor:pointer;padding:6px;}
+  .burger span{display:block;width:22px;height:2px;background:var(--ink);margin:5px 0;}
+
+  /* ---------- HERO ---------- */
+  .hero{padding:76px 0 0;}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:end;}
+  h1{
+    font-family:var(--font-d);
+    font-weight:600;
+    font-size:clamp(34px,5vw,58px);
+    line-height:1.06;
+    letter-spacing:-.01em;
+    color:var(--teal);
+  }
+  h1 em{
+    font-style:normal;color:var(--pulse);
+  }
+  .hero-sub{
+    font-size:17px;color:var(--ink-soft);
+    max-width:420px;margin-top:22px;
+    padding-top:22px;border-top:1px solid var(--line);
+  }
+  .hero-actions{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap;}
+  .btn{
+    font-family:var(--font-m);font-size:14px;
+    padding:13px 22px;border-radius:3px;
+    display:inline-flex;align-items:center;gap:8px;
+    transition:transform .15s, background .2s;
+  }
+  .btn-primary{background:var(--teal);color:var(--paper);}
+  .btn-primary:hover{background:var(--ink);transform:translateY(-1px);}
+  .btn-ghost{border:1px solid var(--ink);color:var(--ink);}
+  .btn-ghost:hover{background:var(--ink);color:var(--paper);}
+
+  .hero-stats{display:flex;flex-direction:column;gap:18px;border-left:1px solid var(--line);padding-left:26px;}
+  .hero-stat b{display:block;font-family:var(--font-d);font-size:22px;color:var(--teal);}
+  .hero-stat span{font-size:13px;color:var(--ink-soft);}
+
+  /* ---------- ECG STRIP ---------- */
+  .ecg-strip{width:100%;overflow:hidden;margin-top:56px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper-alt);}
+  .ecg-track{display:flex;width:200%;}
+  .ecg-track svg{height:76px;width:50%;flex-shrink:0;}
+  .ecg-anim{animation:scrollECG 9s linear infinite;}
+  @keyframes scrollECG{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+  .ecg-path{fill:none;stroke:var(--pulse);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;}
+  .ecg-path.dim{stroke:var(--teal-line);opacity:.35;}
+
+  /* ---------- SECTION GENERIC ---------- */
+  section{padding:88px 0;}
+  .section-head{max-width:620px;margin-bottom:48px;}
+  h2{font-family:var(--font-d);font-weight:600;font-size:clamp(26px,3.4vw,36px);color:var(--teal);letter-spacing:-.01em;}
+  .section-head p{color:var(--ink-soft);margin-top:14px;font-size:15.5px;}
+
+  /* ---------- ABOUT ---------- */
+  .about{background:var(--paper-alt);}
+  .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:52px;}
+  .about p{color:var(--ink-soft);font-size:15.5px;margin-bottom:14px;}
+  .about-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;}
+  .tag{font-family:var(--font-m);font-size:12.5px;border:1px solid var(--line);padding:6px 11px;border-radius:3px;color:var(--teal);background:var(--white);}
+  .about-card{background:var(--white);border:1px solid var(--line);border-radius:6px;padding:26px;}
+  .about-card .row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px;}
+  .about-card .row:last-child{border-bottom:none;}
+  .about-card .row span:first-child{color:var(--ink-soft);}
+  .about-card .row span:last-child{font-family:var(--font-m);font-size:13px;text-align:right;}
+
+  /* ---------- SERVICES ---------- */
+  .services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+  .service{background:var(--paper);padding:32px;}
+  .service .icon{width:38px;height:38px;margin-bottom:20px;}
+  .service h3{font-family:var(--font-d);font-size:19px;font-weight:600;color:var(--teal);margin-bottom:10px;}
+  .service p{font-size:14.5px;color:var(--ink-soft);}
+
+  /* ---------- PROYECTOS (ACORDEÓN) ---------- */
+  .accordion{display:flex;flex-direction:column;gap:14px;}
+  .acc-item{background:var(--teal);color:var(--paper);border-radius:8px;overflow:hidden;}
+  .acc-item summary{
+    list-style:none;cursor:pointer;
+    display:flex;align-items:center;justify-content:space-between;gap:20px;
+    padding:26px 30px;
+  }
+  .acc-item summary::-webkit-details-marker{display:none;}
+  .acc-title{display:flex;align-items:baseline;gap:16px;}
+  .acc-num{font-family:var(--font-m);font-size:13px;color:var(--pulse);}
+  .acc-title span:last-child{font-family:var(--font-d);font-size:clamp(17px,2.4vw,21px);font-weight:600;}
+  .acc-icon{
+    font-family:var(--font-m);font-size:20px;color:var(--pulse);
+    flex-shrink:0;transition:transform .2s;
+  }
+  .acc-item[open] .acc-icon{transform:rotate(45deg);}
+  .acc-body{padding:0 30px 34px;display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;}
+  .acc-body p{color:#C9D8D3;font-size:15px;margin-bottom:10px;}
+  .acc-meta{display:flex;gap:26px;margin-top:18px;flex-wrap:wrap;}
+  .acc-meta div{font-family:var(--font-m);font-size:12.5px;color:#9FC0B6;}
+  .acc-meta b{display:block;color:var(--paper);font-size:14px;font-family:var(--font-b);font-weight:600;margin-top:3px;}
+  .acc-visual{position:relative;background:#0C2A24;border-radius:6px;padding:24px;}
+  .acc-visual svg, .acc-visual img{width:100%;display:block;}
+
+  /* ---------- EXPERIENCE ---------- */
+  .exp-item{display:grid;grid-template-columns:220px 1fr;gap:36px;padding:28px 0;border-top:1px solid var(--line);}
+  .exp-item:last-child{border-bottom:1px solid var(--line);}
+  .exp-role{font-family:var(--font-m);font-size:12.5px;color:var(--pulse);letter-spacing:.05em;text-transform:uppercase;}
+  .exp-org{font-family:var(--font-d);font-size:19px;font-weight:600;color:var(--teal);margin-top:6px;}
+  .exp-loc{font-size:13px;color:var(--ink-soft);margin-top:4px;}
+  .exp-item ul{color:var(--ink-soft);font-size:14.5px;padding-left:18px;}
+  .exp-item li{margin-bottom:8px;}
+
+  /* ---------- CERTS + SKILLS ---------- */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:60px;}
+  .cert{display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);font-size:14.5px;}
+  .cert span:last-child{font-family:var(--font-m);font-size:12.5px;color:var(--ink-soft);white-space:nowrap;}
+  .skill-row{margin-bottom:22px;}
+  .skill-row h4{font-family:var(--font-m);font-size:12.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--pulse);margin-bottom:10px;}
+  .skill-row p{font-size:15px;color:var(--ink-soft);}
+
+  /* ---------- CONTACT ---------- */
+  .contact{background:var(--teal);color:var(--paper);border-radius:8px;padding:60px;text-align:left;}
+  .contact h2{color:var(--paper);}
+  .contact .section-head p{color:#B9CFC9;}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:36px;}
+  .contact-link{display:flex;flex-direction:column;gap:6px;padding:20px 0;border-top:1px solid rgba(255,255,255,.15);}
+  .contact-link span{font-family:var(--font-m);font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--pulse);}
+  .contact-link a, .contact-link p{font-size:17px;font-family:var(--font-d);}
+  .contact-link a:hover{color:var(--pulse);}
+  .contact .btn-primary{background:var(--pulse);color:var(--teal);margin-top:30px;}
+  .contact .btn-primary:hover{background:var(--paper);}
+
+  footer{padding:36px 0;border-top:1px solid var(--line);}
+  .foot-row{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--ink-soft);flex-wrap:wrap;gap:12px;}
+  .foot-row a{font-family:var(--font-m);}
+
+  @media (max-width:860px){
+    .hero-grid,.about-grid,.split,.contact-grid{grid-template-columns:1fr;}
+    .hero-stats{border-left:none;border-top:1px solid var(--line);padding-left:0;padding-top:20px;flex-direction:row;flex-wrap:wrap;gap:26px;}
+    .services-grid{grid-template-columns:1fr;}
+    .acc-body{grid-template-columns:1fr;}
+    .exp-item{grid-template-columns:1fr;gap:10px;}
+    .nav-links{position:fixed;top:64px;left:0;right:0;background:var(--paper);flex-direction:column;align-items:flex-start;padding:20px 32px;border-bottom:1px solid var(--line);display:none;gap:18px;}
+    .nav-links.open{display:flex;}
+    .burger{display:block;}
+    .nav-cta{display:none;}
+    .contact,.acc-item summary,.acc-body{padding:22px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .ecg-anim{animation:none;}
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">
+      <svg class="logo-mark" viewBox="0 0 26 26"><path class="ecg-path" d="M0,15 L6,15 L8,6 L11,22 L14,15 L26,15" /></svg>
+      Karen Arias
+    </div>
+    <nav class="nav-links" id="navLinks">
+      <a href="#servicios">Servicios</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#experiencia">Experiencia</a>
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <a class="nav-cta" href="mailto:karenarias.bme@gmail.com">Contactar</a>
+    <button class="burger" id="burger" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">Ingeniería biomédica · IA en salud</div>
+        <h1>Equipos y datos clínicos que funcionan cuando<br> más se <em>necesitan</em>.</h1>
+        <p class="hero-sub">Mantenimiento y gestión de equipamiento biomédico, y soluciones de inteligencia artificial para imágenes médicas — con el mismo estándar de precisión con el que se calibra un equipo antes de usarlo en un paciente.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="mailto:karenarias.bme@gmail.com">Escríbeme →</a>
+          <a class="btn btn-ghost" href="#proyectos">Ver proyectos</a>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><b>Ing. Biomédica</b><span>Universidad Politécnica Salesiana, Quito</span></div>
+        <div class="hero-stat"><b>HECAM</b><span>Práctica clínica — mantenimiento de equipos médicos</span></div>
+        <div class="hero-stat"><b>MAMA-MIA</b><span>Investigación internacional en segmentación de imágenes médicas</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ecg-strip">
+    <div class="ecg-track ecg-anim" id="ecgTrack"></div>
+  </div>
+
+  <section class="about" id="sobre-mi">
+    <div class="wrap about-grid">
+      <div>
+        <div class="eyebrow">Sobre mí</div>
+        <h2>Precisión técnica, pensada para el servicio de salud.</h2>
+      </div>
+      <div>
+        <p>Me caracterizo por el pensamiento crítico y la precisión técnica: analizar sistemas complejos, encontrar dónde se puede optimizar y proponer soluciones prácticas que de verdad se puedan implementar en un entorno clínico.</p>
+        <p>Trabajo con disciplina y ética profesional, con un solo objetivo detrás de cada proyecto: que el equipo, el dato o el modelo de IA respondan cuando el personal de salud los necesita.</p>
+        <div class="about-tags">
+          <span class="tag">Python</span><span class="tag">MATLAB</span><span class="tag">C++</span>
+          <span class="tag">Arduino</span><span class="tag">Fusion 360</span><span class="tag">LaTeX</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicios">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Servicios</div>
+        <h2>En qué te puedo ayudar</h2>
+        <p>Cuatro frentes donde la ingeniería biomédica y la IA se encuentran con la operación diaria de un servicio de salud.</p>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="services-grid">
+        <div class="service">
+          <svg class="icon" viewBox="0 0 40 40"><rect x="4" y="10" width="32" height="20" rx="2" fill="none" stroke="#00A868" stroke-width="2"/><path d="M8,20 L14,20 L16,14 L19,26 L22,20 L32,20" fill="none" stroke="#00A868" stroke-width="2"/></svg>
+          <h3>Mantenimiento y gestión de equipos</h3>
+          <p>Mantenimiento preventivo y correctivo, calibración e inspecciones funcionales de monitores, bombas de infusión y equipos de diagnóstico, con registros que dan trazabilidad completa.</p>
+        </div>
+        <div class="service">
+          <svg class="icon" viewBox="0 0 40 40"><circle cx="20" cy="20" r="15" fill="none" stroke="#00A868" stroke-width="2"/><path d="M13,20 h5 M22,20 h5 M20,13 v5 M20,22 v5" stroke="#00A868" stroke-width="2"/></svg>
+          <h3>IA aplicada a imágenes médicas</h3>
+          <p>Procesamiento y segmentación de imágenes médicas (MRI y otras modalidades) con aprendizaje profundo, orientado a apoyar la detección y el diagnóstico temprano.</p>
+        </div>
+        <div class="service">
+          <svg class="icon" viewBox="0 0 40 40"><path d="M8,30 L8,18 L20,10 L32,18 L32,30 Z" fill="none" stroke="#00A868" stroke-width="2"/><path d="M16,30 v-8 h8 v8" stroke="#00A868" stroke-width="2"/></svg>
+          <h3>Ciclo de vida del equipamiento</h3>
+          <p>Estimación de vida útil, cronogramas de mantenimiento y acompañamiento en el cumplimiento de procesos y normativa aplicable al equipamiento médico.</p>
+        </div>
+        <div class="service">
+          <svg class="icon" viewBox="0 0 40 40"><rect x="10" y="6" width="20" height="28" rx="1" fill="none" stroke="#00A868" stroke-width="2"/><path d="M14,14 h12 M14,20 h12 M14,26 h8" stroke="#00A868" stroke-width="2"/></svg>
+          <h3>Documentación e informes técnicos</h3>
+          <p>Informes de mantenimiento, guías con metodología GRADE y documentación clara que facilita la trazabilidad y las auditorías del servicio.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="proyectos">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Proyectos</div>
+        <h2>Proyectos en los que he trabajado</h2>
+        <p>Cada tarjeta se despliega con el detalle completo. Ábrelas para ver el enfoque, el periodo y los resultados.</p>
+      </div>
+
+      <div class="accordion">
+
+        <!-- PROYECTO 01 -->
+        <details class="acc-item" open>
+          <summary>
+            <div class="acc-title">
+              <span class="acc-num">01</span>
+              <span>Segmentación automática de nódulos mamarios en imágenes DCE-MRI</span>
+            </div>
+            <span class="acc-icon">+</span>
+          </summary>
+          <div class="acc-body">
+            <div>
+              <p>Investigación de aprendizaje profundo enfocada en apoyar la detección temprana de cáncer de mama, desarrollada a partir del desafío internacional MAMA-MIA de segmentación de imágenes médicas mediante inteligencia artificial.</p>
+              <div class="acc-meta">
+                <div>PERIODO<b>Oct 2025 – Feb 2026</b></div>
+                <div>LUGAR<b>Quito, Ecuador</b></div>
+                <div>ENFOQUE<b>Deep learning en salud</b></div>
+              </div>
+            </div>
+            <div class="acc-visual">
+              <img src="mama-mia-resultados.jpg" alt="Comparación de segmentación de nódulos mamarios en DCE-MRI: Ground Truth, nnU-Net, ResEncXL y modelo ensamblado" style="border-radius:4px;">
+            </div>
+          </div>
+        </details>
+
+        <!--
+          PARA AGREGAR UN NUEVO PROYECTO:
+          1. Copia todo el bloque <details class="acc-item"> ... </details> de arriba.
+          2. Cambia acc-num a "02", el título, la descripción y los 3 datos de acc-meta.
+          3. Cambia o borra el SVG de acc-visual (puede ser una imagen: <img src="..."> en su lugar).
+          4. Pégalo aquí debajo, antes de que cierre </div> class="accordion".
+        -->
+
+      </div>
+    </div>
+  </section>
+
+  <section id="experiencia">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Experiencia</div>
+        <h2>Dónde he puesto esto en práctica</h2>
+      </div>
+      <div class="exp-item">
+        <div>
+          <div class="exp-role">Mar 2025 – Jul 2025</div>
+          <div class="exp-org">HECAM</div>
+          <div class="exp-loc">Hospital de Especialidades Carlos Andrade Marín<br>Quito, Ecuador</div>
+        </div>
+        <ul>
+          <li>Mantenimiento preventivo y correctivo de equipos biomédicos hospitalarios, garantizando su operatividad en áreas clínicas.</li>
+          <li>Inspecciones funcionales y verificación operativa de monitores multiparámetro, bombas de infusión y equipos de diagnóstico.</li>
+          <li>Identificación de fallas técnicas y apoyo en procesos de calibración para una atención más oportuna de incidencias.</li>
+          <li>Elaboración de informes técnicos y registros que dieron trazabilidad al estado operativo de los equipos.</li>
+          <li>Coordinación con personal técnico y clínico para fortalecer la respuesta operativa del área.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap split">
+      <div>
+        <div class="eyebrow">Certificaciones</div>
+        <h2 style="margin-bottom:24px;">Formación continua</h2>
+        <div class="cert"><span>Estimación de la Vida Útil del Equipo Médico</span><span>Oct–Nov 2024</span></div>
+        <div class="cert"><span>Metodología GRADE para guías clínicas</span><span>Oct–Nov 2024</span></div>
+        <div class="cert"><span>Ciclo de la Gestión del Equipamiento Médico</span><span>Nov 2024</span></div>
+        <div class="cert"><span>Desarrollo con IA: de 0 a Producción</span><span>Oct 2026</span></div>
+      </div>
+      <div>
+        <div class="eyebrow">Idiomas &amp; enfoque</div>
+        <h2 style="margin-bottom:24px;">Cómo trabajo</h2>
+        <div class="skill-row"><h4>Idiomas</h4><p>Español (nativo) · Inglés intermedio, con comprensión de documentación técnica y comunicación profesional.</p></div>
+        <div class="skill-row"><h4>Competencias</h4><p>Pensamiento analítico, resolución de problemas, trabajo colaborativo y aprendizaje continuo en entornos multidisciplinarios.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <div class="wrap">
+      <div class="contact">
+        <div class="section-head">
+          <div class="eyebrow">Contacto</div>
+          <h2>¿Tu servicio necesita este tipo de apoyo?</h2>
+          <p>Cuéntame qué equipo, proceso o proyecto de IA tienes en mente y te respondo con los siguientes pasos.</p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-link"><span>Correo</span><a href="mailto:karenarias.bme@gmail.com">karenarias.bme@gmail.com</a></div>
+          <div class="contact-link"><span>Teléfono</span><a href="tel:+593967857347">+593 96 785 7347</a></div>
+          <div class="contact-link"><span>LinkedIn</span><a href="#" target="_blank" rel="noopener">linkedin.com/in/karen-arias</a></div>
+          <div class="contact-link"><span>Ubicación</span><p>Quito, Ecuador</p></div>
+        </div>
+        <a class="btn btn-primary" href="mailto:karenarias.bme@gmail.com">Escríbeme ahora →</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <span>© 2026 Karen Arias — Ingeniería Biomédica</span>
+    <a href="mailto:karenarias.bme@gmail.com">karenarias.bme@gmail.com</a>
+  </div>
+</footer>
+
+<script>
+  // Menú móvil
+  document.getElementById('burger').addEventListener('click', function(){
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+
+  // Generar trazo ECG (una franja de "cycles" latidos, se repite dos veces para loop continuo)
+  function buildECG(cycles, cycleWidth, baseline){
+    var d = 'M0,' + baseline;
+    for (var i = 0; i < cycles; i++){
+      var x0 = i * cycleWidth;
+      d += ' L' + (x0+40) + ',' + baseline;
+      d += ' L' + (x0+55) + ',' + (baseline-10);
+      d += ' L' + (x0+70) + ',' + baseline;
+      d += ' L' + (x0+95) + ',' + baseline;
+      d += ' L' + (x0+105) + ',' + (baseline+8);
+      d += ' L' + (x0+113) + ',' + (baseline-45);
+      d += ' L' + (x0+121) + ',' + (baseline+45);
+      d += ' L' + (x0+130) + ',' + baseline;
+      d += ' L' + (x0+160) + ',' + baseline;
+      d += ' L' + (x0+180) + ',' + (baseline-15);
+      d += ' L' + (x0+200) + ',' + baseline;
+      d += ' L' + (x0+cycleWidth) + ',' + baseline;
+    }
+    return d;
+  }
+
+  var cycles = 4, cw = 300, baseline = 38, totalWidth = cycles*cw;
+  var d = buildECG(cycles, cw, baseline);
+  var svgNS = 'http://www.w3.org/2000/svg';
+
+  function makeSVG(){
+    var svg = document.createElementNS(svgNS,'svg');
+    svg.setAttribute('viewBox','0 0 ' + totalWidth + ' 76');
+    svg.setAttribute('preserveAspectRatio','none');
+    var path = document.createElementNS(svgNS,'path');
+    path.setAttribute('d', d);
+    path.setAttribute('class','ecg-path');
+    svg.appendChild(path);
+    return svg;
+  }
+
+  var track = document.getElementById('ecgTrack');
+  track.appendChild(makeSVG());
+  track.appendChild(makeSVG());
+</script>
+
+</body>
+</html>

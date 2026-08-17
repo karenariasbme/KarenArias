@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Karen Arias — Ingeniería Biomédica & IA en Salud</title>
-<meta name="description" content="Karen Arias, ingeniera biomédica en Quito, Ecuador. Mantenimiento y gestión de equipos médicos, soluciones de IA aplicadas a imágenes médicas y consultoría técnica.">
+<title>Zynthea Solutions — Ingeniería Biomédica & IA en Salud</title>
+<meta name="description" content="Zynthea Solutions, ingeniería biomédica en Quito, Ecuador. Mantenimiento y gestión de equipos médicos, soluciones de IA aplicadas a imágenes médicas y consultoría técnica.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
     --paper:#F5F7F6;
@@ -21,8 +21,8 @@
     --amber:#D98A2B;
     --line:#D6E0DC;
     --white:#FFFFFF;
-    --font-d:'Space Grotesk',sans-serif;
-    --font-b:'IBM Plex Sans',sans-serif;
+    --font-d:'Lora',serif;
+    --font-b:'Inter',sans-serif;
     --font-m:'IBM Plex Mono',monospace;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
@@ -126,6 +126,11 @@
   .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:52px;}
   .about p{color:var(--ink-soft);font-size:15.5px;margin-bottom:14px;}
   .about-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;}
+  .about-photo{margin-top:26px;}
+  .about-photo img{width:100%;max-width:320px;aspect-ratio:4/5;object-fit:cover;border-radius:6px;border:1px solid var(--line);}
+  .about-photo-caption{margin-top:14px;}
+  .about-photo-caption b{display:block;font-family:var(--font-d);font-size:17px;color:var(--teal);}
+  .about-photo-caption span{font-family:var(--font-m);font-size:12.5px;color:var(--ink-soft);}
   .tag{font-family:var(--font-m);font-size:12.5px;border:1px solid var(--line);padding:6px 11px;border-radius:3px;color:var(--teal);background:var(--white);}
   .about-card{background:var(--white);border:1px solid var(--line);border-radius:6px;padding:26px;}
   .about-card .row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px;}
@@ -177,10 +182,26 @@
   /* ---------- CERTS + SKILLS ---------- */
   .split{display:grid;grid-template-columns:1fr 1fr;gap:60px;}
   .cert{display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);font-size:14.5px;}
+  a.cert{color:var(--ink);cursor:pointer;transition:color .15s;}
+  a.cert:hover{color:var(--pulse);}
+  a.cert span:first-child{text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px;}
+  a.cert:hover span:first-child{text-decoration-color:var(--pulse);}
   .cert span:last-child{font-family:var(--font-m);font-size:12.5px;color:var(--ink-soft);white-space:nowrap;}
   .skill-row{margin-bottom:22px;}
   .skill-row h4{font-family:var(--font-m);font-size:12.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--pulse);margin-bottom:10px;}
   .skill-row p{font-size:15px;color:var(--ink-soft);}
+
+  /* ---------- SUB-TABS (dentro de un modal) ---------- */
+  .subtabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px;border-bottom:1px solid var(--line);padding-bottom:20px;}
+  .subtab-btn{
+    font-family:var(--font-m);font-size:13px;
+    padding:9px 16px;border-radius:20px;
+    border:1px solid var(--line);background:var(--white);color:var(--ink-soft);
+    cursor:pointer;transition:all .15s;
+  }
+  .subtab-btn:hover{border-color:var(--teal);color:var(--teal);}
+  .subtab-btn.active{background:var(--teal);color:var(--paper);border-color:var(--teal);}
+  .subtab-panel[hidden]{display:none;}
 
   /* ---------- CONTACT ---------- */
   .contact{background:var(--teal);color:var(--paper);border-radius:8px;padding:60px;text-align:left;}
@@ -214,6 +235,39 @@
     .ecg-anim{animation:none;}
     html{scroll-behavior:auto;}
   }
+
+  /* ---------- MODALES (Servicios / Proyectos / Experiencia / Certificaciones) ---------- */
+  .modal-overlay{
+    display:none;position:fixed;inset:0;z-index:200;
+    background:rgba(14,31,27,.6);
+    padding:70px 20px;overflow-y:auto;
+  }
+  .modal-overlay.open{display:block;}
+  body.modal-locked{overflow:hidden;}
+  .modal-box{
+    position:relative;
+    max-width:1120px;margin:0 auto;
+    background:var(--paper);
+    border-radius:12px;
+    padding:56px 48px 64px;
+    animation:modalIn .22s ease;
+  }
+  .modal-box section, .modal-box > div{padding:0;}
+  @keyframes modalIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+  .modal-close{
+    position:absolute;top:18px;right:18px;
+    width:40px;height:40px;border-radius:50%;
+    background:var(--paper-alt);border:1px solid var(--line);
+    font-size:22px;line-height:1;color:var(--ink);
+    cursor:pointer;display:flex;align-items:center;justify-content:center;
+    font-family:var(--font-b);
+    transition:background .2s,color .2s;
+  }
+  .modal-close:hover{background:var(--teal);color:var(--paper);}
+  @media (max-width:860px){
+    .modal-overlay{padding:0;}
+    .modal-box{border-radius:0;min-height:100%;padding:70px 22px 50px;}
+  }
 </style>
 </head>
 <body>
@@ -222,12 +276,13 @@
   <div class="nav">
     <div class="logo">
       <svg class="logo-mark" viewBox="0 0 26 26"><path class="ecg-path" d="M0,15 L6,15 L8,6 L11,22 L14,15 L26,15" /></svg>
-      Karen Arias
+      Zynthea Solutions
     </div>
     <nav class="nav-links" id="navLinks">
-      <a href="#servicios">Servicios</a>
-      <a href="#proyectos">Proyectos</a>
-      <a href="#experiencia">Experiencia</a>
+      <a href="#" data-modal="modal-servicios">Servicios</a>
+      <a href="#" data-modal="modal-proyectos">Proyectos</a>
+      <a href="#" data-modal="modal-experiencia">Experiencia</a>
+      <a href="#" data-modal="modal-certificaciones">Certificaciones</a>
       <a href="#sobre-mi">Sobre mí</a>
       <a href="#contacto">Contacto</a>
     </nav>
@@ -240,12 +295,12 @@
   <section class="hero wrap">
     <div class="hero-grid">
       <div>
-        <div class="eyebrow">Ingeniería biomédica · IA en salud</div>
-        <h1>Equipos y datos clínicos que funcionan cuando<br> más se <em>necesitan</em>.</h1>
-        <p class="hero-sub">Mantenimiento y gestión de equipamiento biomédico, y soluciones de inteligencia artificial para imágenes médicas — con el mismo estándar de precisión con el que se calibra un equipo antes de usarlo en un paciente.</p>
+        <div class="eyebrow">Ingeniería biomédica · IA en salud · Soluciones médicas</div>
+        <h1>Detrás de cada diagnóstico certero y cada<br> equipo que no falla, hay ingeniería<br> biomédica bien <em>hecha</em>.</h1>
+        <p class="hero-sub">Combinamos mantenimiento y gestión de equipamiento biomédico, soluciones médicas con inteligencia artificial y automatización de procesos clínicos — todo con el mismo estándar de precisión con el que se calibra un equipo antes de usarlo en un paciente.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="mailto:karenarias.bme@gmail.com">Escríbeme →</a>
-          <a class="btn btn-ghost" href="#proyectos">Ver proyectos</a>
+          <a class="btn btn-ghost" href="#" data-modal="modal-proyectos">Ver proyectos</a>
         </div>
       </div>
       <div class="hero-stats">
@@ -263,55 +318,94 @@
   <section class="about" id="sobre-mi">
     <div class="wrap about-grid">
       <div>
-        <div class="eyebrow">Sobre mí</div>
-        <h2>Precisión técnica, pensada para el servicio de salud.</h2>
+        <div class="eyebrow">Fundadora &amp; CEO</div>
+        <h2>Detrás de Zynthea Solutions.</h2>
+        <div class="about-photo">
+          <img src="karen-arias.jpg" alt="Karen Arias, Fundadora y CEO de Zynthea Solutions">
+          <div class="about-photo-caption">
+            <b>Karen Arias</b>
+            <span>Fundadora &amp; CEO — Ingeniera Biomédica</span>
+          </div>
+        </div>
       </div>
       <div>
-        <p>Me caracterizo por el pensamiento crítico y la precisión técnica: analizar sistemas complejos, encontrar dónde se puede optimizar y proponer soluciones prácticas que de verdad se puedan implementar en un entorno clínico.</p>
-        <p>Trabajo con disciplina y ética profesional, con un solo objetivo detrás de cada proyecto: que el equipo, el dato o el modelo de IA respondan cuando el personal de salud los necesita.</p>
-        <div class="about-tags">
-          <span class="tag">Python</span><span class="tag">MATLAB</span><span class="tag">C++</span>
-          <span class="tag">Arduino</span><span class="tag">Fusion 360</span><span class="tag">LaTeX</span>
-        </div>
+        <p>Zynthea Solutions nace de la precisión técnica que exige la ingeniería biomédica: analizar sistemas complejos, encontrar dónde se puede optimizar y proponer soluciones prácticas que de verdad se puedan implementar en un entorno clínico.</p>
+        <p>Hoy es un proyecto liderado directamente por su fundadora, con disciplina, ética profesional y una orientación clara a resultados: cada proyecto arranca con un objetivo definido, y no se da por cerrado hasta cumplirlo. La visión es crecer hacia un equipo que sostenga ese mismo estándar en cada servicio.</p>
       </div>
     </div>
   </section>
 
-  <section id="servicios">
+  <section id="contacto">
+    <div class="wrap">
+      <div class="contact">
+        <div class="section-head">
+          <div class="eyebrow">Contacto</div>
+          <h2>¿Tu servicio necesita este tipo de apoyo?</h2>
+          <p>Cuéntame qué equipo, proceso o proyecto de IA tienes en mente y te respondo con los siguientes pasos.</p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-link"><span>Correo</span><a href="mailto:karenarias.bme@gmail.com">karenarias.bme@gmail.com</a></div>
+          <div class="contact-link"><span>Teléfono</span><a href="tel:+593967857347">+593 96 785 7347</a></div>
+          <div class="contact-link"><span>LinkedIn</span><a href="https://www.linkedin.com/in/karen-arias-3723492a7" target="_blank" rel="noopener">linkedin.com/in/karen-arias</a></div>
+          <div class="contact-link"><span>Ubicación</span><p>Quito, Ecuador</p></div>
+        </div>
+        <a class="btn btn-primary" href="mailto:karenarias.bme@gmail.com">Escríbeme ahora →</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="modal-overlay" id="modal-servicios">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-label="Servicios">
+    <button class="modal-close" data-close-modal aria-label="Cerrar">&times;</button>
     <div class="wrap">
       <div class="section-head">
         <div class="eyebrow">Servicios</div>
-        <h2>En qué te puedo ayudar</h2>
-        <p>Cuatro frentes donde la ingeniería biomédica y la IA se encuentran con la operación diaria de un servicio de salud.</p>
+        <h2>Servicios que ofrecemos</h2>
+        <p>Seis frentes donde la ingeniería biomédica y la IA se encuentran con la operación diaria de un servicio de salud.</p>
       </div>
     </div>
     <div class="wrap">
       <div class="services-grid">
         <div class="service">
           <svg class="icon" viewBox="0 0 40 40"><rect x="4" y="10" width="32" height="20" rx="2" fill="none" stroke="#00A868" stroke-width="2"/><path d="M8,20 L14,20 L16,14 L19,26 L22,20 L32,20" fill="none" stroke="#00A868" stroke-width="2"/></svg>
-          <h3>Mantenimiento y gestión de equipos</h3>
-          <p>Mantenimiento preventivo y correctivo, calibración e inspecciones funcionales de monitores, bombas de infusión y equipos de diagnóstico, con registros que dan trazabilidad completa.</p>
+          <h3>Mantenimiento de equipos médicos de baja complejidad</h3>
+          <p>Mantenimiento preventivo y correctivo, calibración e inspecciones funcionales de monitores, bombas de infusión y equipos de diagnóstico, con registros que dan trazabilidad completa. Contamos con personal con conocimiento en sistemas de aire acondicionado, gases médicos y bombas de vacío — la infraestructura que sostiene la operación de cada equipo.</p>
         </div>
         <div class="service">
           <svg class="icon" viewBox="0 0 40 40"><circle cx="20" cy="20" r="15" fill="none" stroke="#00A868" stroke-width="2"/><path d="M13,20 h5 M22,20 h5 M20,13 v5 M20,22 v5" stroke="#00A868" stroke-width="2"/></svg>
           <h3>IA aplicada a imágenes médicas</h3>
-          <p>Procesamiento y segmentación de imágenes médicas (MRI y otras modalidades) con aprendizaje profundo, orientado a apoyar la detección y el diagnóstico temprano.</p>
+          <p>Desarrollo de modelos de inteligencia artificial para cualquier tipo de imagen médica — MRI, tomografía, ecografía y otras modalidades: segmentación, clasificación, reducción de dimensionalidad (PCA) y modelos de predicción de respuesta. Actuamos según la necesidad específica de cada caso, clínico o de investigación.</p>
         </div>
         <div class="service">
           <svg class="icon" viewBox="0 0 40 40"><path d="M8,30 L8,18 L20,10 L32,18 L32,30 Z" fill="none" stroke="#00A868" stroke-width="2"/><path d="M16,30 v-8 h8 v8" stroke="#00A868" stroke-width="2"/></svg>
           <h3>Ciclo de vida del equipamiento</h3>
-          <p>Estimación de vida útil, cronogramas de mantenimiento y acompañamiento en el cumplimiento de procesos y normativa aplicable al equipamiento médico.</p>
+          <p>Estimación de vida útil y cronogramas de mantenimiento.</p>
         </div>
         <div class="service">
           <svg class="icon" viewBox="0 0 40 40"><rect x="10" y="6" width="20" height="28" rx="1" fill="none" stroke="#00A868" stroke-width="2"/><path d="M14,14 h12 M14,20 h12 M14,26 h8" stroke="#00A868" stroke-width="2"/></svg>
           <h3>Documentación e informes técnicos</h3>
           <p>Informes de mantenimiento, guías con metodología GRADE y documentación clara que facilita la trazabilidad y las auditorías del servicio.</p>
         </div>
+        <div class="service">
+          <svg class="icon" viewBox="0 0 40 40"><circle cx="14" cy="14" r="5" fill="none" stroke="#00A868" stroke-width="2"/><circle cx="26" cy="26" r="5" fill="none" stroke="#00A868" stroke-width="2"/><path d="M18,15 h8 M22,18 v4" fill="none" stroke="#00A868" stroke-width="2"/></svg>
+          <h3>Automatización de procesos</h3>
+          <p>Automatización de procesos clínicos, administrativos o industriales — flujos de trabajo repetitivos, integraciones entre sistemas y tareas manuales — para reducir tiempo y error humano dentro del área de salud o industrias similares.</p>
+        </div>
+        <div class="service">
+          <svg class="icon" viewBox="0 0 40 40"><path d="M20,6 L34,14 V26 L20,34 L6,26 V14 Z" fill="none" stroke="#00A868" stroke-width="2"/><circle cx="20" cy="20" r="5" fill="none" stroke="#00A868" stroke-width="2"/></svg>
+          <h3>¿Tienes otro problema técnico?</h3>
+          <p>Ponte en contacto y cuéntanos cuál es tu problema — te brindamos una solución sintetizada a la medida: páginas web, bases de datos, APIs, software y más.</p>
+        </div>
       </div>
     </div>
-  </section>
+  
+  </div>
+</div>
 
-  <section id="proyectos">
+<div class="modal-overlay" id="modal-proyectos">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-label="Proyectos">
+    <button class="modal-close" data-close-modal aria-label="Cerrar">&times;</button>
     <div class="wrap">
       <div class="section-head">
         <div class="eyebrow">Proyectos</div>
@@ -355,13 +449,31 @@
 
       </div>
     </div>
-  </section>
+  
+  </div>
+</div>
 
-  <section id="experiencia">
+<div class="modal-overlay" id="modal-experiencia">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-label="Experiencia">
+    <button class="modal-close" data-close-modal aria-label="Cerrar">&times;</button>
     <div class="wrap">
       <div class="section-head">
         <div class="eyebrow">Experiencia</div>
         <h2>Dónde he puesto esto en práctica</h2>
+      </div>
+      <div class="exp-item">
+        <div>
+          <div class="exp-role">Jul 2025 – Actualidad</div>
+          <div class="exp-org">HealthCorp S.A.</div>
+          <div class="exp-loc">Quito, Ecuador</div>
+        </div>
+        <ul>
+          <li>Automatización de procesos internos, reduciendo tiempos operativos dentro del área comercial y técnica.</li>
+          <li>Diseño y gestión de bases de datos para procesos comerciales y técnicos de la empresa.</li>
+          <li>Implementación de nuevos flujos de trabajo y mejora continua de procesos existentes.</li>
+          <li>Desarrollo de cotizadores y herramientas de apoyo comercial.</li>
+          <li>Desarrollo de nuevos negocios y evaluación de la competencia del sector.</li>
+        </ul>
       </div>
       <div class="exp-item">
         <div>
@@ -378,50 +490,54 @@
         </ul>
       </div>
     </div>
-  </section>
+  
+  </div>
+</div>
 
-  <section>
-    <div class="wrap split">
-      <div>
-        <div class="eyebrow">Certificaciones</div>
-        <h2 style="margin-bottom:24px;">Formación continua</h2>
-        <div class="cert"><span>Estimación de la Vida Útil del Equipo Médico</span><span>Oct–Nov 2024</span></div>
-        <div class="cert"><span>Metodología GRADE para guías clínicas</span><span>Oct–Nov 2024</span></div>
-        <div class="cert"><span>Ciclo de la Gestión del Equipamiento Médico</span><span>Nov 2024</span></div>
-        <div class="cert"><span>Desarrollo con IA: de 0 a Producción</span><span>Oct 2026</span></div>
+<div class="modal-overlay" id="modal-certificaciones">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-label="Certificaciones">
+    <button class="modal-close" data-close-modal aria-label="Cerrar">&times;</button>
+    <div class="wrap">
+      <div class="eyebrow">Formación</div>
+      <h2 style="margin-bottom:28px;">Certificaciones y perfil</h2>
+
+      <div class="subtabs">
+        <button class="subtab-btn active" data-subtab="certs">Certificaciones</button>
+        <button class="subtab-btn" data-subtab="estudio">Estudio</button>
+        <button class="subtab-btn" data-subtab="idiomas">Idiomas</button>
+        <button class="subtab-btn" data-subtab="enfoque">Enfoque</button>
       </div>
-      <div>
-        <div class="eyebrow">Idiomas &amp; enfoque</div>
-        <h2 style="margin-bottom:24px;">Cómo trabajo</h2>
+
+      <div class="subtab-panel" data-panel="certs">
+        <a class="cert" href="certs/cert-vida-util-equipo.pdf" target="_blank" rel="noopener"><span>Estimación de la Vida Útil del Equipo Médico</span><span>Oct–Nov 2024</span></a>
+        <a class="cert" href="certs/cert-grade.pdf" target="_blank" rel="noopener"><span>Metodología GRADE para guías clínicas</span><span>Nov 2024</span></a>
+        <a class="cert" href="certs/cert-ciclo-gestion-equipamiento.pdf" target="_blank" rel="noopener"><span>Ciclo de la Gestión del Equipamiento Médico</span><span>Nov 2024</span></a>
+        <a class="cert" href="certs/cert-desarrollo-ia.pdf" target="_blank" rel="noopener"><span>Desarrollo con IA: de 0 a Producción</span><span>Mar 2026</span></a>
+        <a class="cert" href="certs/cert-gestion-activos-salud.pdf" target="_blank" rel="noopener"><span>Introducción a la gestión de activos en salud</span><span>Nov 2024</span></a>
+        <a class="cert" href="certs/cert-incorporacion-equipo-medico.pdf" target="_blank" rel="noopener"><span>Incorporación de equipo médico con base al análisis de información</span><span>Nov 2024</span></a>
+        <a class="cert" href="certs/cert-matlab-onramp.pdf" target="_blank" rel="noopener"><span>MATLAB Onramp — MathWorks</span><span>Oct 2023</span></a>
+      </div>
+
+      <div class="subtab-panel" data-panel="estudio" hidden>
+        <div class="cert"><span>Ingeniería Biomédica — Universidad Politécnica Salesiana</span><span>Ene 2021 – Feb 2026</span></div>
+        <p style="color:var(--ink-soft);font-size:14.5px;margin-top:16px;">Quito, Ecuador.</p>
+      </div>
+
+      <div class="subtab-panel" data-panel="idiomas" hidden>
         <div class="skill-row"><h4>Idiomas</h4><p>Español (nativo) · Inglés intermedio, con comprensión de documentación técnica y comunicación profesional.</p></div>
+      </div>
+
+      <div class="subtab-panel" data-panel="enfoque" hidden>
         <div class="skill-row"><h4>Competencias</h4><p>Pensamiento analítico, resolución de problemas, trabajo colaborativo y aprendizaje continuo en entornos multidisciplinarios.</p></div>
       </div>
     </div>
-  </section>
+  </div>
+</div>
 
-  <section id="contacto">
-    <div class="wrap">
-      <div class="contact">
-        <div class="section-head">
-          <div class="eyebrow">Contacto</div>
-          <h2>¿Tu servicio necesita este tipo de apoyo?</h2>
-          <p>Cuéntame qué equipo, proceso o proyecto de IA tienes en mente y te respondo con los siguientes pasos.</p>
-        </div>
-        <div class="contact-grid">
-          <div class="contact-link"><span>Correo</span><a href="mailto:karenarias.bme@gmail.com">karenarias.bme@gmail.com</a></div>
-          <div class="contact-link"><span>Teléfono</span><a href="tel:+593967857347">+593 96 785 7347</a></div>
-          <div class="contact-link"><span>LinkedIn</span><a href="#" target="_blank" rel="noopener">linkedin.com/in/karen-arias</a></div>
-          <div class="contact-link"><span>Ubicación</span><p>Quito, Ecuador</p></div>
-        </div>
-        <a class="btn btn-primary" href="mailto:karenarias.bme@gmail.com">Escríbeme ahora →</a>
-      </div>
-    </div>
-  </section>
-</main>
 
 <footer>
   <div class="wrap foot-row">
-    <span>© 2026 Karen Arias — Ingeniería Biomédica</span>
+    <span>© 2026 Zynthea Solutions — Karen Arias, Ingeniería Biomédica</span>
     <a href="mailto:karenarias.bme@gmail.com">karenarias.bme@gmail.com</a>
   </div>
 </footer>
@@ -430,6 +546,60 @@
   // Menú móvil
   document.getElementById('burger').addEventListener('click', function(){
     document.getElementById('navLinks').classList.toggle('open');
+  });
+
+  // Sistema de modales (Servicios / Proyectos / Experiencia / Certificaciones)
+  function openModal(id){
+    var modal = document.getElementById(id);
+    if(!modal) return;
+    modal.classList.add('open');
+    document.body.classList.add('modal-locked');
+    modal.scrollTop = 0;
+    document.getElementById('navLinks').classList.remove('open');
+  }
+  function closeAllModals(){
+    document.querySelectorAll('.modal-overlay.open').forEach(function(m){
+      m.classList.remove('open');
+    });
+    document.body.classList.remove('modal-locked');
+  }
+
+  // Abrir: cualquier elemento con data-modal
+  document.querySelectorAll('[data-modal]').forEach(function(el){
+    el.addEventListener('click', function(e){
+      e.preventDefault();
+      openModal(el.getAttribute('data-modal'));
+    });
+  });
+
+  // Cerrar: botón X
+  document.querySelectorAll('[data-close-modal]').forEach(function(btn){
+    btn.addEventListener('click', closeAllModals);
+  });
+
+  // Cerrar: clic fuera de la tarjeta (en el fondo oscuro)
+  document.querySelectorAll('.modal-overlay').forEach(function(overlay){
+    overlay.addEventListener('click', function(e){
+      if(e.target === overlay) closeAllModals();
+    });
+  });
+
+  // Cerrar: tecla ESC
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') closeAllModals();
+  });
+
+  // Sub-pestañas dentro del modal de Certificaciones (Certificaciones / Estudio / Idiomas / Enfoque)
+  document.querySelectorAll('.subtab-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var group = btn.closest('.modal-box');
+      var target = btn.getAttribute('data-subtab');
+      group.querySelectorAll('.subtab-btn').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      group.querySelectorAll('.subtab-panel').forEach(function(p){
+        p.hidden = (p.getAttribute('data-panel') !== target);
+      });
+    });
   });
 
   // Generar trazo ECG (una franja de "cycles" latidos, se repite dos veces para loop continuo)

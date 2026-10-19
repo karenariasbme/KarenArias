@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Zynthea Solutions — Ingeniería Biomédica & IA en Salud</title>
-<meta name="description" content="Zynthea Solutions, ingeniería biomédica en Quito, Ecuador. Mantenimiento y gestión de equipos médicos, soluciones de IA aplicadas a imágenes médicas y consultoría técnica.">
+<title>Zynthea Solutions — IA, Automatización e Ingeniería Biomédica</title>
+<meta name="description" content="Zynthea Solutions, Quito, Ecuador. Chatbots de WhatsApp con IA, agentes y asistentes RAG, automatización de procesos (RPA), bots en Python, páginas web y cotizadores, IA en imágenes médicas y mantenimiento de equipos médicos.">
 <meta name="robots" content="index, follow">
-<meta name="keywords" content="ingeniería biomédica Ecuador, mantenimiento equipos médicos Quito, IA imágenes médicas, soluciones médicas Quito, ingeniería biomédica Quito">
+<meta name="keywords" content="chatbot WhatsApp Ecuador, automatización de procesos Quito, agentes de IA, RAG, RPA, bots Python, web scraping, páginas web Quito, cotizador web, inteligencia artificial empresas Ecuador, IA imágenes médicas, mantenimiento equipos médicos Quito, ingeniería biomédica Ecuador">
 <link rel="canonical" href="https://karenariasbme.github.io/KarenArias/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Zynthea Solutions — Ingeniería Biomédica & IA en Salud">
-<meta property="og:description" content="Mantenimiento y gestión de equipos médicos, soluciones de IA aplicadas a imágenes médicas y consultoría técnica en Quito, Ecuador.">
+<meta property="og:title" content="Zynthea Solutions — IA, Automatización e Ingeniería Biomédica">
+<meta property="og:description" content="Chatbots con IA, agentes RAG, automatización de procesos, páginas web e ingeniería biomédica en Quito, Ecuador.">
 <meta property="og:url" content="https://karenariasbme.github.io/KarenArias/">
 <meta property="og:locale" content="es_EC">
 <meta property="og:site_name" content="Zynthea Solutions">
@@ -23,8 +23,12 @@
   "@type": "Organization",
   "name": "Zynthea Solutions",
   "url": "https://karenariasbme.github.io/KarenArias/",
-  "description": "Ingeniería biomédica, mantenimiento de equipos médicos y soluciones de IA en salud en Quito, Ecuador.",
+  "description": "Soluciones de inteligencia artificial, automatización de procesos, desarrollo web e ingeniería biomédica en Quito, Ecuador.",
   "founder": { "@type": "Person", "name": "Karen Arias" },
+  "telephone": "+593967857347",
+  "email": "karenarias.bme@gmail.com",
+  "areaServed": "EC",
+  "knowsAbout": ["Chatbots de WhatsApp", "Agentes de IA", "RAG", "RPA", "Automatización de procesos", "Python", "Web scraping", "Desarrollo web", "Deep Learning", "Imágenes médicas", "Ingeniería biomédica"],
   "address": { "@type": "PostalAddress", "addressLocality": "Quito", "addressCountry": "EC" }
 }
 </script>
@@ -167,6 +171,36 @@
   .service .icon{width:38px;height:38px;margin-bottom:20px;}
   .service h3{font-family:var(--font-d);font-size:19px;font-weight:600;color:var(--teal);margin-bottom:10px;}
   .service p{font-size:14.5px;color:var(--ink-soft);}
+  .service ul{list-style:none;margin-top:14px;display:flex;flex-direction:column;gap:6px;}
+  .service li{font-size:13.5px;color:var(--ink);padding-left:16px;position:relative;}
+  .service li::before{content:"";position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--pulse);}
+  .service-cta{display:inline-block;margin-top:18px;font-family:var(--font-m);font-size:13px;color:var(--teal);border-bottom:1px solid var(--pulse);padding-bottom:2px;}
+  .service-cta:hover{color:var(--pulse);}
+  .service.featured{background:var(--white);}
+  .service-badge{display:inline-block;font-family:var(--font-m);font-size:11px;letter-spacing:.08em;text-transform:uppercase;background:var(--pulse-soft);color:var(--teal);padding:4px 9px;border-radius:3px;margin-bottom:14px;}
+  .group-title{font-family:var(--font-m);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin:44px 0 16px;}
+  .group-title:first-child{margin-top:0;}
+
+  /* ---------- SERVICIOS DESTACADOS (PORTADA) ---------- */
+  .highlights-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .highlight{background:var(--white);border:1px solid var(--line);border-radius:6px;padding:28px;display:flex;flex-direction:column;transition:border-color .2s, transform .15s;}
+  .highlight:hover{border-color:var(--pulse);transform:translateY(-2px);}
+  .highlight .icon{width:34px;height:34px;margin-bottom:18px;}
+  .highlight h3{font-family:var(--font-d);font-size:18px;font-weight:600;color:var(--teal);margin-bottom:8px;}
+  .highlight p{font-size:14px;color:var(--ink-soft);flex:1;}
+  .highlights-actions{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap;}
+
+  /* ---------- PROCESO ---------- */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:8px;}
+  .step{border-top:2px solid var(--pulse);padding-top:16px;}
+  .step b{font-family:var(--font-m);font-size:12.5px;color:var(--pulse);}
+  .step h4{font-family:var(--font-d);font-size:17px;color:var(--teal);margin:6px 0;}
+  .step p{font-size:13.5px;color:var(--ink-soft);}
+
+  /* ---------- WHATSAPP FLOTANTE ---------- */
+  .wa-float{position:fixed;right:22px;bottom:22px;z-index:150;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(14,31,27,.25);transition:transform .15s;}
+  .wa-float:hover{transform:scale(1.06);}
+  .wa-float svg{width:30px;height:30px;}
 
   /* ---------- PROYECTOS (ACORDEÓN) ---------- */
   .accordion{display:flex;flex-direction:column;gap:14px;}
@@ -246,6 +280,9 @@
     .hero-grid,.about-grid,.split,.contact-grid{grid-template-columns:1fr;}
     .hero-stats{border-left:none;border-top:1px solid var(--line);padding-left:0;padding-top:20px;flex-direction:row;flex-wrap:wrap;gap:26px;}
     .services-grid{grid-template-columns:1fr;}
+    .highlights-grid{grid-template-columns:1fr;}
+    .steps{grid-template-columns:1fr 1fr;}
+    .wrap{padding:0 16px;}
     .acc-body{grid-template-columns:1fr;}
     .exp-item{grid-template-columns:1fr;gap:10px;}
     .nav-links{position:fixed;top:64px;left:0;right:0;background:var(--paper);flex-direction:column;align-items:flex-start;padding:20px 32px;border-bottom:1px solid var(--line);display:none;gap:18px;}
@@ -302,14 +339,14 @@
       Zynthea Solutions
     </div>
     <nav class="nav-links" id="navLinks">
-      <a href="#" data-modal="modal-servicios">Servicios</a>
+      <a href="#servicios">Servicios</a>
       <a href="#" data-modal="modal-proyectos">Proyectos</a>
       <a href="#" data-modal="modal-experiencia">Experiencia</a>
       <a href="#" data-modal="modal-certificaciones">Certificaciones</a>
       <a href="#sobre-mi">Sobre mí</a>
       <a href="#contacto">Contacto</a>
     </nav>
-    <a class="nav-cta" href="mailto:karenarias.bme@gmail.com">Contactar</a>
+    <a class="nav-cta" href="https://wa.me/593967857347?text=Hola%20Karen%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios" target="_blank" rel="noopener">Cotizar</a>
     <button class="burger" id="burger" aria-label="Abrir menú"><span></span><span></span><span></span></button>
   </div>
 </header>
@@ -318,18 +355,18 @@
   <section class="hero wrap">
     <div class="hero-grid">
       <div>
-        <div class="eyebrow">Ingeniería biomédica · IA en salud · Soluciones médicas</div>
-        <h1>Detrás de cada diagnóstico certero y cada<br> equipo que no falla, hay ingeniería<br> biomédica bien <em>hecha</em>.</h1>
-        <p class="hero-sub">Combinamos mantenimiento y gestión de equipamiento biomédico, soluciones médicas con inteligencia artificial y automatización de procesos clínicos — todo con el mismo estándar de precisión con el que se calibra un equipo antes de usarlo en un paciente.</p>
+        <div class="eyebrow">IA aplicada · Automatización · Ingeniería biomédica</div>
+        <h1>Automatizamos lo repetitivo para que tu equipo se enfoque en lo que de verdad <em>importa</em>.</h1>
+        <p class="hero-sub">Chatbots de WhatsApp con IA, agentes que responden con la información de tu empresa, bots que trabajan por ti cada día y herramientas web a la medida — con el mismo estándar de precisión con el que se calibra un equipo médico antes de usarlo en un paciente.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="mailto:karenarias.bme@gmail.com">Escríbeme →</a>
-          <a class="btn btn-ghost" href="#" data-modal="modal-proyectos">Ver proyectos</a>
+          <a class="btn btn-primary" href="https://wa.me/593967857347?text=Hola%20Karen%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios" target="_blank" rel="noopener">Cotiza por WhatsApp →</a>
+          <a class="btn btn-ghost" href="#" data-modal="modal-servicios">Ver servicios</a>
         </div>
       </div>
       <div class="hero-stats">
-        <div class="hero-stat"><b>Ing. Biomédica</b><span>Universidad Politécnica Salesiana, Quito</span></div>
-        <div class="hero-stat"><b>HECAM</b><span>Práctica clínica — mantenimiento de equipos médicos</span></div>
-        <div class="hero-stat"><b>MAMA-MIA</b><span>Investigación internacional en segmentación de imágenes médicas</span></div>
+        <div class="hero-stat"><b>IA + Automatización</b><span>Chatbots, agentes RAG, RPA y bots en Python en empresas reales</span></div>
+        <div class="hero-stat"><b>Ing. Biomédica</b><span>Universidad Politécnica Salesiana · práctica clínica en HECAM</span></div>
+        <div class="hero-stat"><b>MAMA-MIA</b><span>Deep learning en imágenes médicas — Dice 0.81 en desafío internacional</span></div>
       </div>
     </div>
   </section>
@@ -337,6 +374,37 @@
   <div class="ecg-strip">
     <div class="ecg-track ecg-anim" id="ecgTrack"></div>
   </div>
+
+  <section id="servicios">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Servicios</div>
+        <h2>Soluciones listas para implementar en tu negocio</h2>
+        <p>Para clínicas, consultorios, laboratorios, distribuidoras y pymes que quieren atender más rápido, vender mejor y dejar de perder horas en tareas manuales.</p>
+      </div>
+      <div class="highlights-grid">
+        <div class="highlight">
+          <svg class="icon" viewBox="0 0 40 40"><path d="M8,8 h24 a3,3 0 0 1 3,3 v14 a3,3 0 0 1 -3,3 h-14 l-7,6 v-6 h-3 a3,3 0 0 1 -3,-3 v-14 a3,3 0 0 1 3,-3 z" fill="none" stroke="#00A868" stroke-width="2"/><path d="M12,16 h16 M12,21 h10" stroke="#00A868" stroke-width="2"/></svg>
+          <h3>Chatbot de WhatsApp con IA</h3>
+          <p>Responde preguntas frecuentes, agenda citas y califica clientes 24/7, y pasa a una persona cuando hace falta.</p>
+        </div>
+        <div class="highlight">
+          <svg class="icon" viewBox="0 0 40 40"><circle cx="20" cy="20" r="6" fill="none" stroke="#00A868" stroke-width="2"/><path d="M20,4 v8 M20,28 v8 M4,20 h8 M28,20 h8 M9,9 l5,5 M26,26 l5,5 M31,9 l-5,5 M14,26 l-5,5" stroke="#00A868" stroke-width="2"/></svg>
+          <h3>Agentes y asistentes de IA (RAG)</h3>
+          <p>Un asistente que responde con <em>tus</em> catálogos, manuales y documentos internos, sin inventar respuestas.</p>
+        </div>
+        <div class="highlight">
+          <svg class="icon" viewBox="0 0 40 40"><circle cx="14" cy="14" r="5" fill="none" stroke="#00A868" stroke-width="2"/><circle cx="26" cy="26" r="5" fill="none" stroke="#00A868" stroke-width="2"/><path d="M18,15 h8 M22,18 v4" fill="none" stroke="#00A868" stroke-width="2"/></svg>
+          <h3>Automatización y bots</h3>
+          <p>Bots en Python y flujos RPA que buscan información, llenan reportes y envían alertas automáticamente cada día.</p>
+        </div>
+      </div>
+      <div class="highlights-actions">
+        <a class="btn btn-primary" href="#" data-modal="modal-servicios">Ver todos los servicios →</a>
+        <a class="btn btn-ghost" href="https://wa.me/593967857347?text=Hola%20Karen%2C%20quiero%20agendar%20una%20reuni%C3%B3n" target="_blank" rel="noopener">Agenda una reunión</a>
+      </div>
+    </div>
+  </section>
 
   <section class="about" id="sobre-mi">
     <div class="wrap about-grid">
@@ -363,16 +431,16 @@
       <div class="contact">
         <div class="section-head">
           <div class="eyebrow">Contacto</div>
-          <h2>¿Tu servicio necesita este tipo de apoyo?</h2>
-          <p>Cuéntame qué equipo, proceso o proyecto de IA tienes en mente y te respondo con los siguientes pasos.</p>
+          <h2>¿Qué proceso quieres automatizar?</h2>
+          <p>Cuéntame qué tarea, equipo o proyecto de IA tienes en mente y te respondo con una propuesta y los siguientes pasos.</p>
         </div>
         <div class="contact-grid">
           <div class="contact-link"><span>Correo</span><a href="mailto:karenarias.bme@gmail.com">karenarias.bme@gmail.com</a></div>
-          <div class="contact-link"><span>Teléfono</span><a href="tel:+593967857347">+593 96 785 7347</a></div>
+          <div class="contact-link"><span>WhatsApp</span><a href="https://wa.me/593967857347?text=Hola%20Karen%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios" target="_blank" rel="noopener">+593 96 785 7347</a></div>
           <div class="contact-link"><span>LinkedIn</span><a href="https://www.linkedin.com/in/karen-arias-3723492a7" target="_blank" rel="noopener">linkedin.com/in/karen-arias</a></div>
           <div class="contact-link"><span>Ubicación</span><p>Quito, Ecuador</p></div>
         </div>
-        <a class="btn btn-primary" href="mailto:karenarias.bme@gmail.com">Escríbeme ahora →</a>
+        <a class="btn btn-primary" href="https://wa.me/593967857347?text=Hola%20Karen%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios" target="_blank" rel="noopener">Escríbeme por WhatsApp →</a>
       </div>
     </div>
   </section>
@@ -385,41 +453,119 @@
       <div class="section-head">
         <div class="eyebrow">Servicios</div>
         <h2>Servicios que ofrecemos</h2>
-        <p>Seis frentes donde la ingeniería biomédica y la IA se encuentran con la operación diaria de un servicio de salud.</p>
+        <p>Dos líneas de trabajo: inteligencia artificial y automatización para cualquier empresa, e ingeniería biomédica para el sector salud.</p>
       </div>
-    </div>
-    <div class="wrap">
+
+      <div class="group-title">IA y automatización</div>
       <div class="services-grid">
-        <div class="service">
-          <svg class="icon" viewBox="0 0 40 40"><rect x="4" y="10" width="32" height="20" rx="2" fill="none" stroke="#00A868" stroke-width="2"/><path d="M8,20 L14,20 L16,14 L19,26 L22,20 L32,20" fill="none" stroke="#00A868" stroke-width="2"/></svg>
-          <h3>Mantenimiento de equipos médicos de baja complejidad</h3>
-          <p>Mantenimiento preventivo y correctivo, calibración e inspecciones funcionales de monitores, bombas de infusión y equipos de diagnóstico, con registros que dan trazabilidad completa. Contamos con personal con conocimiento en sistemas de aire acondicionado, gases médicos y bombas de vacío — la infraestructura que sostiene la operación de cada equipo.</p>
+        <div class="service featured">
+          <span class="service-badge">Más solicitado</span>
+          <svg class="icon" viewBox="0 0 40 40"><path d="M8,8 h24 a3,3 0 0 1 3,3 v14 a3,3 0 0 1 -3,3 h-14 l-7,6 v-6 h-3 a3,3 0 0 1 -3,-3 v-14 a3,3 0 0 1 3,-3 z" fill="none" stroke="#00A868" stroke-width="2"/><path d="M12,16 h16 M12,21 h10" stroke="#00A868" stroke-width="2"/></svg>
+          <h3>Chatbot de WhatsApp con IA</h3>
+          <p>Un asistente que atiende a tus clientes por WhatsApp a cualquier hora, con el tono de tu marca.</p>
+          <ul>
+            <li>Respuestas a preguntas frecuentes, precios y horarios</li>
+            <li>Agendamiento de citas y toma de datos</li>
+            <li>Derivación a un asesor humano cuando hace falta</li>
+            <li>Integración con tu CRM o ERP (por ejemplo, Odoo)</li>
+          </ul>
+          <a class="service-cta" href="https://wa.me/593967857347?text=Hola%20Karen%2C%20me%20interesa%20un%20chatbot%20de%20WhatsApp" target="_blank" rel="noopener">Cotizar este servicio →</a>
         </div>
-        <div class="service">
-          <svg class="icon" viewBox="0 0 40 40"><circle cx="20" cy="20" r="15" fill="none" stroke="#00A868" stroke-width="2"/><path d="M13,20 h5 M22,20 h5 M20,13 v5 M20,22 v5" stroke="#00A868" stroke-width="2"/></svg>
-          <h3>IA aplicada a imágenes médicas</h3>
-          <p>Desarrollo de modelos de inteligencia artificial para cualquier tipo de imagen médica — MRI, tomografía, ecografía y otras modalidades: segmentación, clasificación, reducción de dimensionalidad (PCA) y modelos de predicción de respuesta. Actuamos según la necesidad específica de cada caso, clínico o de investigación.</p>
-        </div>
-        <div class="service">
-          <svg class="icon" viewBox="0 0 40 40"><path d="M8,30 L8,18 L20,10 L32,18 L32,30 Z" fill="none" stroke="#00A868" stroke-width="2"/><path d="M16,30 v-8 h8 v8" stroke="#00A868" stroke-width="2"/></svg>
-          <h3>Ciclo de vida del equipamiento</h3>
-          <p>Estimación de vida útil y cronogramas de mantenimiento.</p>
-        </div>
-        <div class="service">
-          <svg class="icon" viewBox="0 0 40 40"><rect x="10" y="6" width="20" height="28" rx="1" fill="none" stroke="#00A868" stroke-width="2"/><path d="M14,14 h12 M14,20 h12 M14,26 h8" stroke="#00A868" stroke-width="2"/></svg>
-          <h3>Documentación e informes técnicos</h3>
-          <p>Informes de mantenimiento, guías con metodología GRADE y documentación clara que facilita la trazabilidad y las auditorías del servicio.</p>
+        <div class="service featured">
+          <span class="service-badge">IA generativa</span>
+          <svg class="icon" viewBox="0 0 40 40"><circle cx="20" cy="20" r="6" fill="none" stroke="#00A868" stroke-width="2"/><path d="M20,4 v8 M20,28 v8 M4,20 h8 M28,20 h8 M9,9 l5,5 M26,26 l5,5 M31,9 l-5,5 M14,26 l-5,5" stroke="#00A868" stroke-width="2"/></svg>
+          <h3>Agentes y asistentes de IA con RAG</h3>
+          <p>Asistentes basados en LLMs que consultan tu propia información (catálogos, manuales, fichas técnicas, procedimientos) y responden con datos reales de tu empresa.</p>
+          <ul>
+            <li>Búsqueda inteligente en documentos internos</li>
+            <li>Agentes que ejecutan tareas: consultar, redactar, clasificar</li>
+            <li>Soporte para ventas, servicio técnico y atención al cliente</li>
+          </ul>
+          <a class="service-cta" href="https://wa.me/593967857347?text=Hola%20Karen%2C%20me%20interesa%20un%20asistente%20de%20IA%20con%20RAG" target="_blank" rel="noopener">Cotizar este servicio →</a>
         </div>
         <div class="service">
           <svg class="icon" viewBox="0 0 40 40"><circle cx="14" cy="14" r="5" fill="none" stroke="#00A868" stroke-width="2"/><circle cx="26" cy="26" r="5" fill="none" stroke="#00A868" stroke-width="2"/><path d="M18,15 h8 M22,18 v4" fill="none" stroke="#00A868" stroke-width="2"/></svg>
-          <h3>Automatización de procesos</h3>
-          <p>Automatización de procesos clínicos, administrativos o industriales — flujos de trabajo repetitivos, integraciones entre sistemas y tareas manuales — para reducir tiempo y error humano dentro del área de salud o industrias similares.</p>
+          <h3>Automatización de procesos (RPA)</h3>
+          <p>Eliminamos tareas manuales y repetitivas: menos tiempo perdido y menos errores humanos.</p>
+          <ul>
+            <li>Generación automática de reportes y documentos</li>
+            <li>Integraciones entre sistemas y APIs</li>
+            <li>Flujos administrativos, comerciales y clínicos</li>
+          </ul>
+          <a class="service-cta" href="https://wa.me/593967857347?text=Hola%20Karen%2C%20quiero%20automatizar%20un%20proceso" target="_blank" rel="noopener">Cotizar este servicio →</a>
         </div>
         <div class="service">
-          <svg class="icon" viewBox="0 0 40 40"><path d="M20,6 L34,14 V26 L20,34 L6,26 V14 Z" fill="none" stroke="#00A868" stroke-width="2"/><circle cx="20" cy="20" r="5" fill="none" stroke="#00A868" stroke-width="2"/></svg>
-          <h3>¿Tienes otro problema técnico?</h3>
-          <p>Ponte en contacto y cuéntanos cuál es tu problema — te brindamos una solución sintetizada a la medida: páginas web, bases de datos, APIs, software y más.</p>
+          <svg class="icon" viewBox="0 0 40 40"><rect x="6" y="8" width="28" height="24" rx="2" fill="none" stroke="#00A868" stroke-width="2"/><path d="M13,17 l-4,3 l4,3 M27,17 l4,3 l-4,3 M22,15 l-4,10" fill="none" stroke="#00A868" stroke-width="2"/></svg>
+          <h3>Bots en Python y web scraping</h3>
+          <p>Bots que revisan sitios web por ti todos los días y te avisan solo de lo que importa.</p>
+          <ul>
+            <li>Monitoreo de licitaciones, precios o competencia</li>
+            <li>Extracción y limpieza de datos</li>
+            <li>Alertas automáticas por correo o WhatsApp</li>
+          </ul>
+          <a class="service-cta" href="https://wa.me/593967857347?text=Hola%20Karen%2C%20me%20interesa%20un%20bot%20de%20monitoreo" target="_blank" rel="noopener">Cotizar este servicio →</a>
         </div>
+        <div class="service">
+          <svg class="icon" viewBox="0 0 40 40"><rect x="5" y="7" width="30" height="22" rx="2" fill="none" stroke="#00A868" stroke-width="2"/><path d="M5,13 h30 M15,33 h10 M20,29 v4" stroke="#00A868" stroke-width="2"/></svg>
+          <h3>Páginas web y herramientas a la medida</h3>
+          <p>Sitios web profesionales y aplicaciones web para tu operación diaria.</p>
+          <ul>
+            <li>Páginas web y landing pages con SEO básico</li>
+            <li>Cotizadores web y catálogos digitales</li>
+            <li>Bases de datos en la nube (Firebase) y paneles</li>
+          </ul>
+          <a class="service-cta" href="https://wa.me/593967857347?text=Hola%20Karen%2C%20me%20interesa%20una%20p%C3%A1gina%20web%20o%20herramienta" target="_blank" rel="noopener">Cotizar este servicio →</a>
+        </div>
+        <div class="service">
+          <svg class="icon" viewBox="0 0 40 40"><path d="M6,32 L6,8 M6,32 L34,32" stroke="#00A868" stroke-width="2"/><path d="M10,26 L17,18 L23,22 L32,11" fill="none" stroke="#00A868" stroke-width="2"/></svg>
+          <h3>Análisis de datos con IA</h3>
+          <p>Convertimos tus datos (ventas, inventario, mantenimiento) en información útil para decidir.</p>
+          <ul>
+            <li>Limpieza y organización de datos</li>
+            <li>Modelos de Machine Learning y predicción</li>
+            <li>Reportes y dashboards automáticos</li>
+          </ul>
+          <a class="service-cta" href="https://wa.me/593967857347?text=Hola%20Karen%2C%20me%20interesa%20un%20an%C3%A1lisis%20de%20datos" target="_blank" rel="noopener">Cotizar este servicio →</a>
+        </div>
+      </div>
+
+      <div class="group-title">Ingeniería biomédica y salud</div>
+      <div class="services-grid">
+        <div class="service">
+          <svg class="icon" viewBox="0 0 40 40"><circle cx="20" cy="20" r="15" fill="none" stroke="#00A868" stroke-width="2"/><path d="M13,20 h5 M22,20 h5 M20,13 v5 M20,22 v5" stroke="#00A868" stroke-width="2"/></svg>
+          <h3>IA aplicada a imágenes médicas</h3>
+          <p>Modelos de Deep Learning para MRI, tomografía, ecografía y otras modalidades: segmentación, clasificación, reducción de dimensionalidad (PCA) y modelos de predicción de respuesta, para uso clínico o de investigación.</p>
+        </div>
+        <div class="service">
+          <svg class="icon" viewBox="0 0 40 40"><rect x="4" y="10" width="32" height="20" rx="2" fill="none" stroke="#00A868" stroke-width="2"/><path d="M8,20 L14,20 L16,14 L19,26 L22,20 L32,20" fill="none" stroke="#00A868" stroke-width="2"/></svg>
+          <h3>Mantenimiento de equipos médicos de baja complejidad</h3>
+          <p>Mantenimiento preventivo y correctivo, calibración e inspecciones funcionales de monitores, bombas de infusión y equipos de diagnóstico, con registros que dan trazabilidad completa. Contamos con personal con conocimiento en aire acondicionado, gases médicos y bombas de vacío.</p>
+        </div>
+        <div class="service">
+          <svg class="icon" viewBox="0 0 40 40"><path d="M8,30 L8,18 L20,10 L32,18 L32,30 Z" fill="none" stroke="#00A868" stroke-width="2"/><path d="M16,30 v-8 h8 v8" stroke="#00A868" stroke-width="2"/></svg>
+          <h3>Gestión y ciclo de vida del equipamiento</h3>
+          <p>Estimación de vida útil, cronogramas de mantenimiento e inventarios digitales del equipamiento biomédico, con alertas automáticas de mantenimiento.</p>
+        </div>
+        <div class="service">
+          <svg class="icon" viewBox="0 0 40 40"><rect x="10" y="6" width="20" height="28" rx="1" fill="none" stroke="#00A868" stroke-width="2"/><path d="M14,14 h12 M14,20 h12 M14,26 h8" stroke="#00A868" stroke-width="2"/></svg>
+          <h3>Documentación técnica e investigación</h3>
+          <p>Informes de mantenimiento, guías con metodología GRADE, artículos científicos y revisiones sistemáticas, con documentación clara para auditorías y publicación.</p>
+        </div>
+      </div>
+
+      <div class="group-title">Cómo trabajamos</div>
+      <div class="steps">
+        <div class="step"><b>01</b><h4>Diagnóstico</h4><p>Conversamos sobre tu proceso y detectamos qué se puede automatizar.</p></div>
+        <div class="step"><b>02</b><h4>Propuesta y demo</h4><p>Te enviamos el alcance, el precio y una demo del funcionamiento.</p></div>
+        <div class="step"><b>03</b><h4>Implementación</h4><p>Desarrollamos, probamos con tus datos reales y capacitamos a tu equipo.</p></div>
+        <div class="step"><b>04</b><h4>Soporte continuo</h4><p>Plan mensual opcional de mantenimiento, mejoras y monitoreo.</p></div>
+      </div>
+
+      <div class="group-title">¿Tienes otro problema técnico?</div>
+      <p style="color:var(--ink-soft);font-size:15px;max-width:640px;">Cuéntanos cuál es y te proponemos una solución a la medida: APIs, bases de datos, integraciones, software y más.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://wa.me/593967857347?text=Hola%20Karen%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios" target="_blank" rel="noopener">Escríbenos por WhatsApp →</a>
+        <a class="btn btn-ghost" href="mailto:karenarias.bme@gmail.com">Enviar un correo</a>
       </div>
     </div>
   
@@ -557,6 +703,10 @@
   </div>
 </div>
 
+
+<a class="wa-float" href="https://wa.me/593967857347?text=Hola%20Karen%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+  <svg viewBox="0 0 32 32" fill="#fff"><path d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 7L3 29l6.4-2c2 1.1 4.3 1.7 6.6 1.7 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.4c-2.1 0-4.1-.6-5.9-1.7l-.4-.3-3.8 1.2 1.2-3.7-.3-.4c-1.2-1.8-1.8-3.8-1.8-5.9C5 9.9 9.9 5.2 16 5.2s11 4.7 11 10.6-4.9 10.6-11 10.6zm6-7.9c-.3-.2-2-1-2.3-1.1-.3-.1-.5-.2-.8.2-.2.3-.9 1.1-1.1 1.3-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.7-1.6-1-.9-1.7-2-1.9-2.3-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6l-1.1-2.5c-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.7s1.2 3.2 1.4 3.4c.2.2 2.4 3.6 5.8 5 .8.3 1.4.5 1.9.7.8.3 1.5.2 2.1.1.6-.1 2-.8 2.2-1.6.3-.8.3-1.4.2-1.6-.1-.1-.3-.2-.6-.4z"/></svg>
+</a>
 
 <footer>
   <div class="wrap foot-row">

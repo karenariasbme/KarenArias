@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sistema para Talleres Mecánicos · Zynthea Solutions</title>
+<meta name="description" content="Sistema de gestión para talleres mecánicos: vehículos, órdenes de trabajo, historial y ganancias. Pago único, sin mensualidades.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sistema para Talleres Mecánicos · Zynthea Solutions">
+<meta property="og:description" content="Vehículos, órdenes de trabajo, historial y ganancias de tu taller en un solo sistema. Pago único desde $60, sin mensualidades.">
+<meta property="og:url" content="https://karenariasbme.github.io/KarenArias/talleres/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+:root{--ink:#17191C;--ground:#F5F3EF;--muted:#55595F;--line:#DDD8D0;--accent:#C2410C;--accent-dark:#9A3412;--accent-light:#FB923C;--card:#FFFFFF}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:Inter,system-ui,sans-serif}
+a{color:var(--accent)}a:hover{color:var(--accent-dark)}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.display{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase}
+.eyebrow{margin:0 0 8px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:18px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.h2{margin:0 0 32px;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(36px,5vw,56px);line-height:1;text-transform:uppercase}
+.btn{display:inline-block;text-align:center;text-decoration:none;padding:14px 22px;border-radius:10px;font-weight:700;font-size:15px;min-height:44px}
+.pill{border-radius:999px}
+.dark{background:var(--ink);color:var(--ground)}
+nav .wrap{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px}
+.brand{display:flex;align-items:center;gap:10px;color:var(--ground);text-decoration:none;min-height:44px}
+.brand span{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:22px;letter-spacing:.06em;text-transform:uppercase}
+.navlinks{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.navlinks a{color:var(--ground);text-decoration:none;padding:12px 14px;font-size:15px}
+.navlinks a.wa{background:var(--accent-light);color:var(--ink);border-radius:999px;font-weight:700;padding:12px 18px}
+header{padding:64px 0 80px}
+header h1{margin:16px 0;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(44px,7vw,88px);line-height:.95;text-transform:uppercase;max-width:920px}
+header p{margin:0;font-size:19px;line-height:1.55;max-width:720px;color:#D6D3CD}
+.tags{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+.tags span{border:1px solid #4A4E55;border-radius:999px;padding:8px 16px;font-size:14px}
+.strip{margin-top:-36px;background:var(--card);border-radius:16px;padding:28px 32px;box-shadow:0 10px 30px rgba(23,25,28,.08);display:flex;flex-wrap:wrap;gap:24px}
+.strip div{flex:1 1 200px;display:flex;flex-direction:column;gap:4px}
+.strip span{font-size:14px;color:var(--muted)}
+.steps{display:flex;flex-wrap:wrap;gap:20px}
+.step{flex:1 1 260px;display:flex;gap:16px;align-items:flex-start}
+.step b{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:56px;line-height:1;color:var(--accent)}
+.step span{font-size:15px;color:var(--muted)}
+.plans{display:flex;flex-wrap:wrap;gap:20px;align-items:stretch}
+.plan{flex:1 1 250px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px 24px;display:flex;flex-direction:column;gap:18px}
+.plan.rec{border:3px solid var(--accent);padding:26px 22px}
+.plan.prem{background:var(--ink);color:var(--ground);border-color:var(--ink)}
+.plan h3{margin:0;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:28px;text-transform:uppercase}
+.sub{font-size:14px;color:var(--muted)}
+.prem .sub{color:#C9C5BE}
+.price{display:flex;align-items:baseline;gap:6px}
+.price strong{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:64px;line-height:1}
+.badge{align-self:flex-start;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:6px 12px}
+.foot{margin-top:auto;padding-top:16px;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
+.prem .foot{border-color:#3A3E44;color:#C9C5BE}
+.chk{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.chk li{position:relative;padding-left:28px;font-size:15px;line-height:1.45}
+.chk li::before{content:"";position:absolute;left:3px;top:3px;width:6px;height:11px;border:solid var(--accent);border-width:0 2.5px 2.5px 0;transform:rotate(45deg)}
+.prem .chk li::before{border-color:var(--accent-light)}
+.tablebox{overflow-x:auto;background:var(--card);border-radius:16px;border:1px solid var(--line)}
+table{width:100%;border-collapse:collapse;min-width:720px}
+th,td{padding:14px 16px;text-align:center;border-bottom:1px solid var(--line);font-size:15px}
+th:first-child,td:first-child{text-align:left}
+thead th{font-family:'Barlow Condensed',sans-serif;font-size:20px;text-transform:uppercase}
+.selector{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px}
+.selector button{min-height:44px;padding:10px 20px;border-radius:999px;border:2px solid #C9C3B9;background:#fff;color:var(--ink);font:600 15px Inter,sans-serif;cursor:pointer}
+.selector button[aria-pressed="true"]{border-color:var(--accent);background:var(--accent);color:#fff;font-weight:700}
+.summary{border-radius:16px;padding:24px 28px;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between;margin-bottom:20px}
+.summary small{display:block;font-size:14px;color:#C9C5BE;margin-bottom:4px}
+.code{font-family:ui-monospace,Menlo,Consolas,monospace;letter-spacing:.04em}
+.paygrid{display:flex;flex-wrap:wrap;gap:20px;align-items:stretch}
+.box{flex:1 1 340px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:14px}
+.box h3{margin:0;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:28px;text-transform:uppercase}
+.box p{margin:0;font-size:15px;line-height:1.55}
+.bank{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 16px;font-size:15px}
+.bank span{color:var(--muted)}
+.cta{background:var(--accent);color:#fff;border-radius:20px;padding:40px 32px;display:flex;flex-wrap:wrap;gap:32px;align-items:center;justify-content:space-between}
+.cta a{color:#fff}
+section{padding:64px 0 16px}
+footer{padding:24px;text-align:center;font-size:14px;color:#C9C5BE}
+.sr{position:absolute;left:-9999px}
+</style>
+</head>
+<body>
+
+<nav class="dark">
+<div class="wrap">
+<a class="brand" href="https://karenariasbme.github.io/KarenArias/">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FB923C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16L4 20h16"/></svg>
+<span>Zynthea Solutions</span>
+</a>
+<div class="navlinks">
+<a href="#planes">Planes</a>
+<a href="#pagar">Pagar</a>
+<a class="wa" href="https://wa.me/593967857347?text=Hola%20Karen%2C%20tengo%20dudas%20sobre%20el%20Sistema%20para%20Talleres.">WhatsApp</a>
+</div>
+</div>
+</nav>
+
+<header class="dark">
+<div class="wrap">
+<span class="eyebrow" style="color:var(--accent-light);font-size:20px">Sistema de gestión para talleres mecánicos</span>
+<h1>Tu taller, organizado en un solo sistema</h1>
+<p>Registra cada vehículo, cada orden de trabajo y cada dólar que entra. Desde la computadora o el celular, con acceso privado solo para tu taller.</p>
+<div class="tags" style="margin-top:28px">
+<a class="btn pill" href="#planes" style="background:var(--accent-light);color:var(--ink)">Ver planes y precios</a>
+<a class="btn pill" href="https://wa.me/593967857347?text=Hola%20Karen%2C%20tengo%20dudas%20sobre%20el%20Sistema%20para%20Talleres." style="border:1px solid #6B7078;color:var(--ground)">Tengo dudas</a>
+</div>
+<div class="tags">
+<span>Sin mensualidades</span><span>Alojamiento gratuito</span><span>Datos protegidos con usuario y contraseña</span>
+</div>
+</div>
+</header>
+
+<main class="wrap">
+
+<div class="strip">
+<div><strong>Funciona en todo</strong><span>PC, tablet y celular desde el navegador</span></div>
+<div><strong>Información privada</strong><span>Solo entra quien tenga usuario del taller</span></div>
+<div><strong>Base de datos en la nube</strong><span>Nada se pierde si se daña el equipo</span></div>
+<div><strong>Pago único</strong><span>Sin costos mensuales de servidor</span></div>
+</div>
+
+<section>
+<p class="eyebrow">Cómo funciona</p>
+<div class="steps">
+<div class="step"><b>1</b><div><strong>Elige tu plan</strong><br><span>Según lo que necesita tu taller hoy. Puedes subir de plan después.</span></div></div>
+<div class="step"><b>2</b><div><strong>Paga como prefieras</strong><br><span>Tarjeta de crédito o débito, o transferencia bancaria con tu código.</span></div></div>
+<div class="step"><b>3</b><div><strong>Recibe tu sistema</strong><br><span>Te contacto por WhatsApp, lo configuro con los datos de tu taller y te lo entrego listo.</span></div></div>
+</div>
+</section>
+
+<section id="planes">
+<p class="eyebrow">Planes</p>
+<h2 class="h2">Elige el plan para tu taller</h2>
+<div class="plans">
+
+<article class="plan">
+<div><h3>Básico</h3><span class="sub">Para empezar a ordenar el taller</span></div>
+<div class="price"><strong>$60</strong><span class="sub">pago único</span></div>
+<ul class="chk">
+<li>Acceso seguro con usuario y contraseña (1 usuario)</li>
+<li>Registro de clientes: nombre, cédula, teléfono y correo</li>
+<li>Registro de vehículos: placa, marca, modelo, año y color</li>
+<li>Orden de trabajo con código automático (OT-0001)</li>
+<li>Mantenimiento preventivo o correctivo</li>
+<li>Fecha y hora de ingreso y de salida</li>
+<li>Motivo y descripción del trabajo</li>
+<li>Observación de cómo llegó y cómo se va el vehículo</li>
+<li>Historial completo por placa</li>
+<li>Buscador por placa o por cliente</li>
+</ul>
+<div class="foot">Entrega: 5 días · Soporte: 15 días</div>
+<a class="btn" href="#pagar" data-plan="BAS" style="background:var(--ink);color:#fff">Comprar Básico</a>
+</article>
+
+<article class="plan">
+<div><h3>Estándar</h3><span class="sub">Controla lo que cobras</span></div>
+<div class="price"><strong>$80</strong><span class="sub">pago único</span></div>
+<p style="margin:0;font-size:14px;font-weight:600">Todo lo del Básico, más:</p>
+<ul class="chk">
+<li>Valores por orden: mano de obra, repuestos y total</li>
+<li>Estado de la orden: abierta, en proceso o entregada</li>
+<li>Kilometraje de ingreso</li>
+<li>Reporte de ganancias del mes</li>
+<li>Exportar información a Excel</li>
+</ul>
+<div class="foot">Entrega: 7 días · Soporte: 1 mes</div>
+<a class="btn" href="#pagar" data-plan="EST" style="background:var(--ink);color:#fff">Comprar Estándar</a>
+</article>
+
+<article class="plan rec">
+<span class="badge" style="background:var(--accent);color:#fff">Recomendado</span>
+<div><h3>Profesional</h3><span class="sub">Ganancias claras y evidencia en fotos</span></div>
+<div class="price"><strong style="color:var(--accent)">$100</strong><span class="sub">pago único</span></div>
+<p style="margin:0;font-size:14px;font-weight:600">Todo lo del Estándar, más:</p>
+<ul class="chk">
+<li>Fotos del vehículo al ingresar y al salir</li>
+<li>Costo de repuestos para calcular la ganancia real</li>
+<li>Panel de ganancias con gráficos por día, mes y tipo de servicio</li>
+<li>Orden de trabajo imprimible en PDF con el logo del taller</li>
+<li>Filtros por fecha, tipo de mantenimiento y estado</li>
+<li>Respaldo automático semanal de la información</li>
+</ul>
+<div class="foot">Entrega: 10 días · Soporte: 1 mes</div>
+<a class="btn" href="#pagar" data-plan="PRO" style="background:var(--accent);color:#fff">Comprar Profesional</a>
+</article>
+
+<article class="plan prem">
+<span class="badge" style="border:1px solid var(--accent-light);color:var(--accent-light)">Web + App</span>
+<div><h3>Premium</h3><span class="sub">El taller completo en tu celular</span></div>
+<div class="price"><strong style="color:var(--accent-light)">$200</strong><span class="sub">pago único</span></div>
+<p style="margin:0;font-size:14px;font-weight:600">Todo lo del Profesional, más:</p>
+<ul class="chk">
+<li>App instalable en Android y iPhone con ícono del taller</li>
+<li>Varios usuarios con roles: dueño y mecánicos (el mecánico no ve ganancias)</li>
+<li>Envío de la orden de trabajo al cliente por WhatsApp</li>
+<li>Recordatorio del próximo mantenimiento por fecha o kilometraje</li>
+<li>Lista de clientes con mantenimientos pendientes</li>
+<li>Capacitación al personal del taller</li>
+</ul>
+<div class="foot">Entrega: 15 días · Soporte: 2 meses</div>
+<a class="btn" href="#pagar" data-plan="PRE" style="background:var(--accent-light);color:var(--ink)">Comprar Premium</a>
+</article>
+
+</div>
+</section>
+
+<section>
+<h2 class="h2" style="font-size:clamp(30px,4vw,44px);margin-bottom:24px">Compara rápido</h2>
+<div class="tablebox">
+<table>
+<thead><tr><th>Función</th><th>Básico</th><th>Estándar</th><th style="color:var(--accent)">Profesional</th><th>Premium</th></tr></thead>
+<tbody>
+<tr><td>Clientes, vehículos y órdenes con código</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
+<tr><td>Ingreso, salida y observaciones del vehículo</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
+<tr><td>Historial por placa</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
+<tr><td>Valores y reporte de ganancias del mes</td><td>—</td><td>✓</td><td>✓</td><td>✓</td></tr>
+<tr><td>Exportar a Excel</td><td>—</td><td>✓</td><td>✓</td><td>✓</td></tr>
+<tr><td>Fotos del vehículo</td><td>—</td><td>—</td><td>✓</td><td>✓</td></tr>
+<tr><td>Gráficos de ganancias y orden en PDF</td><td>—</td><td>—</td><td>✓</td><td>✓</td></tr>
+<tr><td>Respaldo automático</td><td>—</td><td>—</td><td>✓</td><td>✓</td></tr>
+<tr><td>App en el celular</td><td>—</td><td>—</td><td>—</td><td>✓</td></tr>
+<tr><td>Varios usuarios con roles</td><td>—</td><td>—</td><td>—</td><td>✓</td></tr>
+<tr><td>WhatsApp y recordatorios de mantenimiento</td><td>—</td><td>—</td><td>—</td><td>✓</td></tr>
+<tr><td><b>Precio</b></td><td><b>$60</b></td><td><b>$80</b></td><td><b style="color:var(--accent)">$100</b></td><td><b>$200</b></td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section id="pagar">
+<p class="eyebrow">Pago</p>
+<h2 class="h2" style="margin-bottom:24px">Paga tu plan</h2>
+<div class="selector" id="selector" role="group" aria-label="Elegir plan"></div>
+
+<div class="summary dark">
+<div><small>Plan elegido</small><strong class="display" style="font-size:34px" id="selName">Profesional · $100</strong></div>
+<div><small>Tu código de pago</small><strong class="code" style="font-size:26px;color:var(--accent-light)" id="code">ZS-PRO-0000</strong></div>
+</div>
+
+<div class="paygrid">
+<div class="box">
+<h3>Tarjeta de crédito o débito</h3>
+<p style="color:var(--muted)">Pago seguro con Visa o Mastercard a través de Payphone. No guardamos los datos de tu tarjeta.</p>
+<a class="btn" id="cardBtn" href="#pagar" style="margin-top:auto;background:var(--accent);color:#fff;padding:16px;font-size:16px">Pagar con tarjeta</a>
+</div>
+<div class="box">
+<h3>Transferencia bancaria</h3>
+<div class="bank">
+<span>Banco</span><strong>[BANCO]</strong>
+<span>Tipo de cuenta</span><strong>[AHORROS / CORRIENTE]</strong>
+<span>N.º de cuenta</span><strong>[NÚMERO DE CUENTA]</strong>
+<span>Titular</span><strong>Karen Arias Jáuregui</strong>
+<span>Cédula / RUC</span><strong>[CÉDULA O RUC]</strong>
+<span>Referencia</span><strong class="code" style="color:var(--accent)" id="code2">ZS-PRO-0000</strong>
+</div>
+<p style="font-size:14px;color:var(--muted)">Escribe tu código en la referencia o descripción de la transferencia y envíame el comprobante.</p>
+<a class="btn" id="waBtn" href="https://wa.me/593967857347" style="margin-top:auto;background:var(--ink);color:#fff;padding:16px;font-size:16px">Enviar comprobante por WhatsApp</a>
+</div>
+</div>
+</section>
+
+<section style="display:flex;flex-wrap:wrap;gap:20px">
+<div class="box">
+<h3 style="font-size:26px">¿Por qué es seguro?</h3>
+<ul class="chk">
+<li>Contraseñas cifradas y conexión segura HTTPS</li>
+<li>Cada registro está protegido con reglas de acceso: sin usuario del taller no se ve nada</li>
+<li>La información vive en la nube, no en una sola computadora</li>
+<li>El código se guarda en un repositorio profesional con control de versiones</li>
+</ul>
+</div>
+<div class="box">
+<h3 style="font-size:26px">¿Por qué no hay mensualidad?</h3>
+<p>El sistema se aloja en GitHub y usa Supabase como base de datos, ambos en su plan gratuito. Ese plan alcanza para miles de órdenes de trabajo, más que suficiente para un taller.</p>
+<p style="color:var(--muted)">Opcional, no incluido: dominio propio (ej. mitaller.com), aprox. $15 al año.</p>
+</div>
+</section>
+
+<section style="padding-bottom:80px">
+<div class="cta">
+<div style="flex:1 1 420px;display:flex;flex-direction:column;gap:12px">
+<h2 class="display" style="margin:0;font-weight:800;font-size:clamp(32px,4vw,48px);line-height:1">¿Tienes dudas?</h2>
+<p style="margin:0;font-size:16px;line-height:1.55">Escríbeme y te explico qué plan le conviene a tu taller. Puedes subir de plan en cualquier momento pagando solo la diferencia.</p>
+<a class="btn pill" href="https://wa.me/593967857347?text=Hola%20Karen%2C%20tengo%20dudas%20sobre%20el%20Sistema%20para%20Talleres." style="align-self:flex-start;background:#fff;color:var(--accent-dark)">Escribir por WhatsApp</a>
+</div>
+<div style="flex:0 1 320px;display:flex;flex-direction:column;gap:6px;font-size:15px">
+<strong style="font-size:18px">Karen Arias</strong>
+<span>Fundadora · Zynthea Solutions</span>
+<span>+593 96 785 7347</span>
+<a href="mailto:karenarias.bme@gmail.com">karenarias.bme@gmail.com</a>
+<a href="https://karenariasbme.github.io/KarenArias/">Ver más servicios</a>
+<span>Quito, Ecuador</span>
+</div>
+</div>
+</section>
+
+</main>
+
+<footer class="dark">© 2026 Zynthea Solutions · Quito, Ecuador</footer>
+
+<script>
+// ===== CONFIGURACIÓN =====
+// Pega aquí el link de pago de Payphone de cada plan.
+const PAYMENT_LINKS = {
+  BAS: "", // Plan Básico $60
+  EST: "", // Plan Estándar $80
+  PRO: "", // Plan Profesional $100
+  PRE: ""  // Plan Premium $200
+};
+const WHATSAPP = "593967857347";
+// =========================
+
+const PLANS = [
+  { id: "BAS", name: "Básico", price: "$60" },
+  { id: "EST", name: "Estándar", price: "$80" },
+  { id: "PRO", name: "Profesional", price: "$100" },
+  { id: "PRE", name: "Premium", price: "$200" }
+];
+const n = String(Math.floor(1000 + Math.random() * 9000));
+let current = "PRO";
+const selector = document.getElementById("selector");
+
+PLANS.forEach(p => {
+  const b = document.createElement("button");
+  b.type = "button";
+  b.textContent = p.name + " · " + p.price;
+  b.dataset.plan = p.id;
+  b.addEventListener("click", () => select(p.id));
+  selector.appendChild(b);
+});
+
+function select(id) {
+  current = id;
+  const p = PLANS.find(x => x.id === id);
+  const code = "ZS-" + p.id + "-" + n;
+  selector.querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", b.dataset.plan === id));
+  document.getElementById("selName").textContent = p.name + " · " + p.price;
+  document.getElementById("code").textContent = code;
+  document.getElementById("code2").textContent = code;
+  const card = document.getElementById("cardBtn");
+  const link = PAYMENT_LINKS[id];
+  card.textContent = link ? "Pagar " + p.price + " con tarjeta" : "Pago con tarjeta: escríbeme por WhatsApp";
+  card.href = link || ("https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent("Hola Karen, quiero pagar con tarjeta el Plan " + p.name + " (" + p.price + "). Mi código es " + code + "."));
+  if (link) { card.target = "_blank"; card.rel = "noopener"; } else { card.removeAttribute("target"); }
+  const msg = "Hola Karen, quiero el Plan " + p.name + " (" + p.price + ") del Sistema para Talleres. Mi código de pago es " + code + ". Adjunto el comprobante de transferencia.";
+  document.getElementById("waBtn").href = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(msg);
+}
+
+document.querySelectorAll("a[data-plan]").forEach(a => a.addEventListener("click", () => select(a.dataset.plan)));
+select(current);
+</script>
+</body>
+</html>

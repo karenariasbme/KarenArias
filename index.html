@@ -44,6 +44,15 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/KarenArias/assets/site.css">
+<style>
+  /* ---------- SOBRE MÍ / HABILIDADES (solo Inicio) ---------- */
+  .about p.about-closing{font-family:var(--font-d);font-size:19px;line-height:1.4;color:var(--teal);border-left:3px solid var(--pulse);padding-left:18px;margin-top:24px;}
+  .skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;}
+  .skill-card{background:var(--white);border:1px solid var(--line);border-radius:6px;padding:26px;}
+  .skill-card h3{font-family:var(--font-m);font-size:12.5px;font-weight:500;text-transform:uppercase;letter-spacing:.08em;color:var(--pulse);}
+  .skill-card .about-tags{margin-top:16px;}
+  @media (max-width:860px){ .skills-grid{grid-template-columns:1fr;} }
+</style>
 </head>
 <body>
 
@@ -71,11 +80,11 @@
     <div class="hero-grid">
       <div>
         <div class="eyebrow">IA aplicada · Automatización · Ingeniería biomédica</div>
-        <h1>Automatizamos lo repetitivo para que tu equipo se enfoque en lo que de verdad <em>importa</em>.</h1>
-        <p class="hero-sub">Chatbots de WhatsApp con IA, agentes que responden con la información de tu empresa, bots que trabajan por ti cada día y herramientas web a la medida — con el mismo estándar de precisión con el que se calibra un equipo médico antes de usarlo en un paciente.</p>
+        <h1>Karen Arias</h1>
+        <p class="hero-sub">Ingeniera Biomédica · IA y Automatización</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="https://wa.me/593967857347?text=Hola%20Karen%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios" target="_blank" rel="noopener">Cotiza por WhatsApp →</a>
-          <a class="btn btn-ghost" href="/KarenArias/servicios/">Ver servicios</a>
+          <a class="btn btn-primary" href="/KarenArias/servicios/">Ver servicios →</a>
+          <a class="btn btn-ghost" href="/KarenArias/contacto/">Contacto</a>
         </div>
       </div>
       <div class="hero-stats">
@@ -94,7 +103,7 @@
     <div class="wrap about-grid">
       <div>
         <div class="eyebrow">Fundadora &amp; CEO</div>
-        <h2>Detrás de Zynthea Solutions.</h2>
+        <h2>Ingeniera biomédica que construye soluciones con IA</h2>
         <div class="about-photo">
           <img src="/KarenArias/karen-arias.jpg" alt="Karen Arias, Fundadora y CEO de Zynthea Solutions">
           <div class="about-photo-caption">
@@ -104,39 +113,57 @@
         </div>
       </div>
       <div>
-        <p>Zynthea Solutions nace de la precisión técnica que exige la ingeniería biomédica: analizar sistemas complejos, encontrar dónde se puede optimizar y proponer soluciones prácticas que de verdad se puedan implementar en un entorno clínico.</p>
-        <p>Hoy es un proyecto liderado directamente por su fundadora, con disciplina, ética profesional y una orientación clara a resultados: cada proyecto arranca con un objetivo definido, y no se da por cerrado hasta cumplirlo. La visión es crecer hacia un equipo que sostenga ese mismo estándar en cada servicio.</p>
+        <p>Soy Karen Arias, Ingeniera Biomédica por la Universidad Politécnica Salesiana y fundadora de Zynthea Solutions. Mi base es la ingeniería clínica: mantenimiento preventivo y correctivo, calibración e inspección de equipos médicos, gestión del ciclo de vida del equipamiento y documentación técnica, experiencia que desarrollé en el área de Mantenimiento de Equipos Médicos del Hospital de Especialidades Carlos Andrade Marín (HECAM).</p>
+        <p>La ingeniería biomédica es mi enfoque, no mi límite. Esa formación —pensar en sistemas, medir, validar y documentar— la aplico hoy a la inteligencia artificial y la automatización: desarrollo agentes basados en LLM, flujos de automatización en n8n, bots en Python, bases de datos y aplicaciones web que resuelven problemas reales en salud, comercio y pymes.</p>
+        <p>Actualmente implemento automatización e IA en los procesos de una empresa importadora de equipamiento médico, apoyando a las áreas de compras públicas, ventas, marketing, nuevos negocios y servicio técnico. También he trabajado en investigación aplicada, con la segmentación automática de nódulos mamarios en imágenes DCE-MRI mediante aprendizaje profundo, basada en el desafío internacional MAMA-MIA.</p>
+        <p class="about-closing">Trabajo cada proyecto con el rigor de la ingeniería clínica: medir, validar y documentar antes de entregar.</p>
       </div>
     </div>
   </section>
 
-  <section id="resumen">
+  <section id="habilidades">
     <div class="wrap">
       <div class="section-head">
-        <div class="eyebrow">Servicios</div>
-        <h2>Soluciones listas para implementar en tu negocio</h2>
-        <p>Para clínicas, consultorios, laboratorios, distribuidoras y pymes que quieren atender más rápido, vender mejor y dejar de perder horas en tareas manuales.</p>
+        <div class="eyebrow">Perfil técnico</div>
+        <h2>Habilidades</h2>
       </div>
-      <div class="highlights-grid">
-        <div class="highlight">
-          <svg class="icon" viewBox="0 0 40 40"><path d="M8,8 h24 a3,3 0 0 1 3,3 v14 a3,3 0 0 1 -3,3 h-14 l-7,6 v-6 h-3 a3,3 0 0 1 -3,-3 v-14 a3,3 0 0 1 3,-3 z" fill="none" stroke="#00A868" stroke-width="2"/><path d="M12,16 h16 M12,21 h10" stroke="#00A868" stroke-width="2"/></svg>
-          <h3>Chatbot de WhatsApp con IA</h3>
-          <p>Responde preguntas frecuentes, agenda citas y califica clientes 24/7, y pasa a una persona cuando hace falta.</p>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>Inteligencia artificial</h3>
+          <div class="about-tags">
+            <span class="tag">Agentes LLM</span><span class="tag">RAG</span><span class="tag">Prompt engineering</span><span class="tag">APIs de LLM (Claude, DeepSeek, OpenAI)</span><span class="tag">Claude Code</span><span class="tag">Deep learning en imágenes médicas</span>
+          </div>
         </div>
-        <div class="highlight">
-          <svg class="icon" viewBox="0 0 40 40"><circle cx="20" cy="20" r="6" fill="none" stroke="#00A868" stroke-width="2"/><path d="M20,4 v8 M20,28 v8 M4,20 h8 M28,20 h8 M9,9 l5,5 M26,26 l5,5 M31,9 l-5,5 M14,26 l-5,5" stroke="#00A868" stroke-width="2"/></svg>
-          <h3>Agentes y asistentes de IA (RAG)</h3>
-          <p>Un asistente que responde con <em>tus</em> catálogos, manuales y documentos internos, sin inventar respuestas.</p>
+        <div class="skill-card">
+          <h3>Automatización</h3>
+          <div class="about-tags">
+            <span class="tag">n8n</span><span class="tag">Chatbots de WhatsApp</span><span class="tag">RPA</span><span class="tag">Bots en Python</span><span class="tag">Web scraping</span>
+          </div>
         </div>
-        <div class="highlight">
-          <svg class="icon" viewBox="0 0 40 40"><circle cx="14" cy="14" r="5" fill="none" stroke="#00A868" stroke-width="2"/><circle cx="26" cy="26" r="5" fill="none" stroke="#00A868" stroke-width="2"/><path d="M18,15 h8 M22,18 v4" fill="none" stroke="#00A868" stroke-width="2"/></svg>
-          <h3>Automatización y bots</h3>
-          <p>Bots en Python y flujos RPA que buscan información, llenan reportes y envían alertas automáticamente cada día.</p>
+        <div class="skill-card">
+          <h3>Desarrollo y datos</h3>
+          <div class="about-tags">
+            <span class="tag">Python</span><span class="tag">JavaScript</span><span class="tag">HTML/CSS</span><span class="tag">PostgreSQL</span><span class="tag">Firebase</span><span class="tag">Docker</span><span class="tag">Git/GitHub</span><span class="tag">Odoo</span>
+          </div>
         </div>
-      </div>
-      <div class="highlights-actions">
-        <a class="btn btn-primary" href="/KarenArias/servicios/">Ver todos los servicios →</a>
-        <a class="btn btn-ghost" href="https://wa.me/593967857347?text=Hola%20Karen%2C%20quiero%20agendar%20una%20reuni%C3%B3n" target="_blank" rel="noopener">Agenda una reunión</a>
+        <div class="skill-card">
+          <h3>Ingeniería biomédica</h3>
+          <div class="about-tags">
+            <span class="tag">Mantenimiento preventivo y correctivo</span><span class="tag">Calibración</span><span class="tag">Gestión del ciclo de vida del equipamiento</span><span class="tag">Estimación de vida útil</span><span class="tag">Documentación técnica</span><span class="tag">MATLAB</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>Otras herramientas</h3>
+          <div class="about-tags">
+            <span class="tag">C++</span><span class="tag">Arduino</span><span class="tag">Fusion 360</span><span class="tag">LaTeX (Overleaf)</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>Idiomas</h3>
+          <div class="about-tags">
+            <span class="tag">Español (nativo)</span><span class="tag">Inglés (intermedio, documentación técnica)</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>

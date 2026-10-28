@@ -244,17 +244,18 @@ footer{padding:24px;text-align:center;font-size:14px;color:#C9C5BE}
 <div class="paygrid">
 <div class="box">
 <h3>Tarjeta de crédito o débito</h3>
-<p style="color:var(--muted)">Pago seguro con Visa o Mastercard a través de Payphone. No guardamos los datos de tu tarjeta.</p>
+<p style="color:var(--muted)">Pago seguro con Visa, Mastercard, Diners o Discover a través de Payphone. No guardamos los datos de tu tarjeta.</p>
 <a class="btn" id="cardBtn" href="#pagar" style="margin-top:auto;background:var(--accent);color:#fff;padding:16px;font-size:16px">Pagar con tarjeta</a>
 </div>
 <div class="box">
+<span class="badge" style="background:var(--accent);color:#fff">Recomendado · sin recargo</span>
 <h3>Transferencia bancaria</h3>
 <div class="bank">
-<span>Banco</span><strong>[BANCO]</strong>
-<span>Tipo de cuenta</span><strong>[AHORROS / CORRIENTE]</strong>
-<span>N.º de cuenta</span><strong>[NÚMERO DE CUENTA]</strong>
+<span>Banco</span><strong>Banco Pichincha</strong>
+<span>Tipo de cuenta</span><strong>Ahorros</strong>
+<span>N.º de cuenta</span><strong>2209020951</strong>
 <span>Titular</span><strong>Karen Arias Jáuregui</strong>
-<span>Cédula / RUC</span><strong>[CÉDULA O RUC]</strong>
+<span>Cédula / RUC</span><strong>1728487701001</strong>
 <span>Referencia</span><strong class="code" style="color:var(--accent)" id="code2">ZS-PRO-0000</strong>
 </div>
 <p style="font-size:14px;color:var(--muted)">Escribe tu código en la referencia o descripción de la transferencia y envíame el comprobante.</p>
@@ -306,10 +307,10 @@ footer{padding:24px;text-align:center;font-size:14px;color:#C9C5BE}
 // ===== CONFIGURACIÓN =====
 // Pega aquí el link de pago de Payphone de cada plan.
 const PAYMENT_LINKS = {
-  BAS: "", // Plan Básico $60
-  EST: "", // Plan Estándar $80
-  PRO: "", // Plan Profesional $100
-  PRE: ""  // Plan Premium $200
+  BAS: "https://ppls.me/pnqNC1arvMsnRVzHU2hAoQ", // Plan Básico $60
+  EST: "https://ppls.me/ntZRGBi5K78YXLLp0yfHNA", // Plan Estándar $80
+  PRO: "https://ppls.me/HTA2LrAXsVl3q3Itmi1hw",  // Plan Profesional $100
+  PRE: "https://ppls.me/iHpdsOg2m1QXc0FVboc0A"   // Plan Premium $200
 };
 const WHATSAPP = "593967857347";
 // =========================

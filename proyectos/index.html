@@ -20,6 +20,28 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/KarenArias/assets/site.css">
+<style>
+  /* ---------- DETALLE DE PROYECTO + LIGHTBOX (solo Proyectos) ---------- */
+  .acc-label{font-family:var(--font-m);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--pulse);margin-bottom:14px;}
+  .acc-subtitle{font-family:var(--font-m);font-size:12.5px;color:#9FC0B6;margin:20px 0 10px;}
+  .acc-list{list-style:none;display:flex;flex-direction:column;gap:8px;}
+  .acc-list li{position:relative;padding-left:16px;color:#C9D8D3;font-size:14.5px;}
+  .acc-list li::before{content:"";position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--pulse);}
+  .acc-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;}
+  .acc-chips span{font-family:var(--font-m);font-size:12.5px;border:1px solid var(--teal-line);background:#0C2A24;color:var(--paper);padding:6px 11px;border-radius:3px;}
+  .acc-body{min-width:0;}
+  .acc-body > *{min-width:0;}
+  .zoom-link{display:block;cursor:zoom-in;}
+  .zoom-link img{width:100%;height:auto;border-radius:4px;}
+  .zoom-hint{display:block;font-family:var(--font-m);font-size:12px;color:#9FC0B6;margin-top:10px;text-align:center;}
+  .lightbox{position:fixed;inset:0;z-index:300;background:rgba(14,31,27,.92);display:none;align-items:center;justify-content:center;padding:24px;cursor:zoom-out;}
+  .lightbox.open{display:flex;}
+  .lightbox img{max-width:100%;max-height:100%;width:auto;height:auto;border-radius:6px;}
+  .lightbox-close{position:absolute;top:16px;right:16px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.08);color:#fff;font-size:24px;line-height:1;cursor:pointer;}
+  @media (max-width:860px){
+    .acc-visual.acc-visual-full{padding:0;background:none;}
+  }
+</style>
 </head>
 <body>
 
@@ -53,11 +75,47 @@
 
       <div class="accordion">
 
-        <!-- PROYECTO 01 -->
+        <!-- PROYECTO 01 (destacado) -->
         <details class="acc-item" open>
           <summary>
             <div class="acc-title">
               <span class="acc-num">01</span>
+              <span>Segmentación automática de tumores de mama en DCE-MRI</span>
+            </div>
+            <span class="acc-icon">+</span>
+          </summary>
+          <div class="acc-body">
+            <div>
+              <div class="acc-label">Investigación · Deep Learning · Imagen médica</div>
+              <p>Pipeline de deep learning para la segmentación 3D de tumores de mama en resonancia magnética con contraste dinámico (DCE-MRI), basado en el desafío internacional MAMA-MIA y orientado a la detección temprana del cáncer de mama.</p>
+              <div class="acc-subtitle">METODOLOGÍA</div>
+              <ul class="acc-list">
+                <li>Dos arquitecturas entrenadas sobre DCE-MRI: nnU-Net 3D y ResEncXL (encoder residual).</li>
+                <li>Ensemble de las probabilidades (logits) de ambos modelos.</li>
+                <li>Post-procesamiento: filtrado de componentes conectados por volumen y selección de componentes con criterio multifocal.</li>
+                <li>Reconstrucción 3D y cálculo del volumen tumoral, evaluado en las cohortes ISPY1, ISPY2, DUKE y NACT.</li>
+              </ul>
+              <div class="acc-chips">
+                <span>Python</span><span>PyTorch</span><span>nnU-Net</span><span>ResEncXL</span><span>Imagen médica 3D</span>
+              </div>
+              <div class="acc-meta">
+                <div>PERIODO<b>Oct 2025 – Feb 2026</b></div>
+              </div>
+            </div>
+            <div class="acc-visual acc-visual-full">
+              <a class="zoom-link" href="/KarenArias/assets/img/proyectos/segmentacion-dce-mri-arquitectura.png" target="_blank" rel="noopener" data-lightbox>
+                <img src="/KarenArias/assets/img/proyectos/segmentacion-dce-mri-arquitectura.png" alt="Arquitectura del pipeline: nnU-Net 3D y ResEncXL, ensemble de logits y post-procesamiento con filtrado de componentes y selección multifocal" loading="lazy" width="1080" height="1350">
+              </a>
+              <span class="zoom-hint">Clic en la imagen para ampliar</span>
+            </div>
+          </div>
+        </details>
+
+        <!-- PROYECTO 02 -->
+        <details class="acc-item" open>
+          <summary>
+            <div class="acc-title">
+              <span class="acc-num">02</span>
               <span>Segmentación automática de nódulos mamarios en imágenes DCE-MRI</span>
             </div>
             <span class="acc-icon">+</span>
@@ -101,7 +159,29 @@
   </div>
 </footer>
 
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Imagen ampliada">
+  <button class="lightbox-close" type="button" aria-label="Cerrar">&times;</button>
+  <img alt="">
+</div>
+
 <script src="/KarenArias/assets/site.js"></script>
+<script>
+  // Lightbox: abre en grande las imágenes con data-lightbox (sin JS, el enlace abre la imagen en otra pestaña)
+  (function(){
+    var box = document.getElementById('lightbox'), big = box.querySelector('img');
+    function close(){ box.classList.remove('open'); document.body.style.overflow = ''; }
+    document.querySelectorAll('[data-lightbox]').forEach(function(a){
+      a.addEventListener('click', function(e){
+        e.preventDefault();
+        var img = a.querySelector('img');
+        big.src = a.href; big.alt = img ? img.alt : '';
+        box.classList.add('open'); document.body.style.overflow = 'hidden';
+      });
+    });
+    box.addEventListener('click', close);
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape') close(); });
+  })();
+</script>
 
 </body>
 </html>

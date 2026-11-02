@@ -99,6 +99,7 @@ footer{padding:24px;text-align:center;font-size:14px;color:#C9C5BE}
 <div class="navlinks">
 <a href="/KarenArias/servicios/">← Servicios</a>
 <a href="#planes">Planes</a>
+<a href="#personalizar">Personalizar</a>
 <a href="#pagar">Pagar</a>
 <a class="wa" data-demo href="#demo" style="background:var(--accent);color:#fff">Ver demo</a>
 <a class="wa" href="https://wa.me/593967857347?text=Hola%20Karen%2C%20tengo%20dudas%20sobre%20el%20Sistema%20para%20Lavadoras%20y%20Lubricadoras.">WhatsApp</a>
@@ -230,6 +231,7 @@ footer{padding:24px;text-align:center;font-size:14px;color:#C9C5BE}
 </article>
 
 </div>
+<p class="sub" style="margin:20px 0 0">Todos los planes se pueden personalizar en colores, logo, campos y funciones por un valor adicional. <a href="#personalizar">Ver personalización</a></p>
 </section>
 
 <section>
@@ -250,11 +252,37 @@ footer{padding:24px;text-align:center;font-size:14px;color:#C9C5BE}
 <tr><td>App en el celular</td><td>—</td><td>—</td><td>—</td><td>✓</td></tr>
 <tr><td>Varios usuarios con roles</td><td>—</td><td>—</td><td>—</td><td>✓</td></tr>
 <tr><td>WhatsApp y recordatorio del próximo cambio</td><td>—</td><td>—</td><td>—</td><td>✓</td></tr>
+<tr><td>Personalización a tu gusto (costo adicional)</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
 <tr><td><b>Precio</b></td><td><b>$60</b></td><td><b>$80</b></td><td><b style="color:var(--accent)">$100</b></td><td><b>$200</b></td></tr>
 </tbody>
 </table>
 </div>
 </section>
+
+<section id="personalizar">
+<p class="eyebrow">Personalización</p>
+<h2 class="h2">Tu sistema, a tu gusto</h2>
+<div class="paygrid">
+<div class="box">
+<h3>Todos los planes se personalizan</h3>
+<p>Cualquier plan se puede adaptar a tu lavadora por un valor adicional. Trabajo cada detalle contigo hasta que quede como lo quieres.</p>
+<ul class="chk">
+<li>Colores, logo y nombre de tu lavadora en todo el sistema</li>
+<li>Tus aceites, filtros y modelos de carros cargados desde el inicio</li>
+<li>Campos propios en productos, clientes y cambios de aceite</li>
+<li>Reportes y comprobantes con tu diseño</li>
+<li>Funciones nuevas que tu negocio necesite</li>
+</ul>
+</div>
+<div class="box" style="background:var(--ink);color:var(--ground);border-color:var(--ink)">
+<h3>¿Cómo se cotiza?</h3>
+<p style="color:#D6D3CD">Me cuentas qué quieres cambiar o agregar, te envío el valor adicional y el tiempo de entrega, y lo trabajo sobre el plan que elijas.</p>
+<p style="color:#D6D3CD">El costo depende de lo que pidas. La cotización no tiene costo.</p>
+<a class="btn pill" href="https://wa.me/593967857347?text=Hola%20Karen%2C%20quiero%20cotizar%20la%20personalizaci%C3%B3n%20del%20Sistema%20para%20Lavadoras%20y%20Lubricadoras." style="margin-top:auto;background:var(--accent-light);color:var(--ink)">Cotizar mi personalización</a>
+</div>
+</div>
+</section>
+
 <section id="pagar">
 <p class="eyebrow">Pago</p>
 <h2 class="h2" style="margin-bottom:24px">Paga tu plan</h2>
@@ -334,10 +362,10 @@ footer{padding:24px;text-align:center;font-size:14px;color:#C9C5BE}
 // ===== CONFIGURACIÓN =====
 // Pega aquí el link de pago de Payphone de cada plan.
 const PAYMENT_LINKS = {
-  BAS: "https://ppls.me/pnqNC1arvMsnRVzHU2hAoQ", // Plan Básico $60
-  EST: "https://ppls.me/ntZRGBi5K78YXLLp0yfHNA", // Plan Estándar $80
-  PRO: "https://ppls.me/HTA2LrAXsVl3q3Itmi1hw",  // Plan Profesional $100
-  PRE: "https://ppls.me/iHpdsOg2m1QXc0FVboc0A"   // Plan Premium $200
+  BAS: "https://ppls.me/hjgISnz5TDIA5AqifNkRg",  // Lavadoras Básico $60
+  EST: "https://ppls.me/Ejm6YWGS2jRImVhvzV8g",   // Lavadoras Estándar $80
+  PRO: "https://ppls.me/iheH5ffyTDLZ4XI1A2vA",   // Lavadoras Profesional $100
+  PRE: "https://ppls.me/IrCS7gWjyrY3h6HM0gg"  // Lavadoras Premium $200
 };
 const WHATSAPP = "593967857347";
 // Link de la demo de lavadoras (déjalo vacío hasta publicarla; mientras tanto los botones de demo abren WhatsApp).
@@ -384,6 +412,20 @@ document.querySelectorAll("a[data-plan]").forEach(a => a.addEventListener("click
 select(current);
 const demoMsg = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent("Hola Karen, quiero ver la demo del Sistema para Lavadoras y Lubricadoras.");
 document.querySelectorAll("[data-demo]").forEach(a => { a.href = DEMO_URL || demoMsg; if (!DEMO_URL) { a.target = "_blank"; a.rel = "noopener"; } });
+
+// Enlaces directos con #ancla: al cargar las fuentes cambia la altura del contenido; volver a llevar a la sección.
+// El salto inicial se hace sin animación (si no, la animación termina después en la posición vieja);
+// tras "load" (llega la hoja de Google Fonts) y fonts.ready (terminan de cargar las fuentes) se corrige y se
+// devuelve el desplazamiento suave para los enlaces del menú.
+if (location.hash && document.fonts) {
+  const html = document.documentElement;
+  html.style.scrollBehavior = "auto";
+  window.addEventListener("load", () => document.fonts.ready.then(() => {
+    const destino = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (destino) destino.scrollIntoView();
+    html.style.scrollBehavior = "";
+  }));
+}
 </script>
 </body>
 </html>

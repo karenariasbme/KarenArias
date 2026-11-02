@@ -410,6 +410,20 @@ function select(id) {
 
 document.querySelectorAll("a[data-plan]").forEach(a => a.addEventListener("click", () => select(a.dataset.plan)));
 select(current);
+
+// Enlaces directos con #ancla: al cargar las fuentes cambia la altura del contenido; volver a llevar a la sección.
+// El salto inicial se hace sin animación (si no, la animación termina después en la posición vieja);
+// tras "load" (llega la hoja de Google Fonts) y fonts.ready (terminan de cargar las fuentes) se corrige y se
+// devuelve el desplazamiento suave para los enlaces del menú.
+if (location.hash && document.fonts) {
+  const html = document.documentElement;
+  html.style.scrollBehavior = "auto";
+  window.addEventListener("load", () => document.fonts.ready.then(() => {
+    const destino = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (destino) destino.scrollIntoView();
+    html.style.scrollBehavior = "";
+  }));
+}
 </script>
 </body>
 </html>

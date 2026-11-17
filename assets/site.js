@@ -59,3 +59,26 @@ if (track){
   track.appendChild(makeSVG());
   track.appendChild(makeSVG());
 }
+
+
+// Iniciar sesión: selector de sistema (Talleres / Lavadoras)
+(function(){
+  var btn = document.getElementById('loginBtn');
+  var pop = document.getElementById('loginPop');
+  if (!btn || !pop) return;
+  function abrir(abierto){
+    pop.hidden = !abierto;
+    btn.setAttribute('aria-expanded', abierto);
+    if (abierto){
+      var links = document.getElementById('navLinks');   // cierra el menú móvil si estaba abierto
+      if (links && links.classList.contains('open')){ links.classList.remove('open'); burger.setAttribute('aria-expanded', false); }
+      pop.querySelector('a').focus();
+    }
+  }
+  btn.addEventListener('click', function(e){ e.stopPropagation(); abrir(pop.hidden); });
+  document.addEventListener('click', function(e){ if (!pop.hidden && !pop.contains(e.target)) abrir(false); });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && !pop.hidden){ abrir(false); btn.focus(); }
+  });
+  burger.addEventListener('click', function(){ if (!pop.hidden) abrir(false); });
+})();

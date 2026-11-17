@@ -328,3 +328,9 @@ footer{padding:36px 0;border-top:1px solid var(--line);}
 @media (max-width:340px){
   .logo{font-size:0;}
 }
+
+
+/* ---------- SEO: H1 de páginas interiores (mismo aspecto que el título de sección) ---------- */
+h1.page-title{font-size:clamp(26px,3.4vw,36px);line-height:1.2;}
+.foot-legal{font-size:12.5px;}
+.foot-legal a{font-family:var(--font-b);color:var(--ink-soft);text-decoration:underline;text-underline-offset:2px;}

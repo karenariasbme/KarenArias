@@ -68,7 +68,7 @@
     {
       "@type": "Offer",
       "name": "Plan Premium",
-      "description": "Pago único, sin mensualidades. Todo lo del Profesional, más: app instalable en Android y iPhone, varios usuarios con roles, lista de clientes con mantenimientos pendientes y capacitación al personal.",
+      "description": "Pago único, sin mensualidades. Todo lo del Profesional, más: capacitación al personal del taller. Próximamente (se activan al estar listas, sin costo adicional para quien reservó el plan): app instalable en Android y iPhone, varios usuarios con roles y lista de clientes con mantenimientos pendientes.",
       "price": "200",
       "priceCurrency": "USD",
       "url": "https://karenariasbme.github.io/KarenArias/talleres/#planes",
@@ -155,6 +155,7 @@ footer{padding:24px;text-align:center;font-size:14px;color:#C9C5BE}
 .sm{display:none}
 .prox{display:inline-block;vertical-align:1px;margin-left:4px;padding:1px 8px;border-radius:999px;background:#FFF1E6;color:var(--accent-dark);border:1px solid #F6C9A8;font-size:11px;font-weight:700;letter-spacing:.03em;white-space:nowrap}
 .reserva{margin:0;padding:10px 12px;border-radius:10px;background:#FFF1E6;color:var(--accent-dark);font-size:13.5px;font-weight:600;line-height:1.4}
+.prem-reserva{background:#2A2D33;color:var(--accent-light)}
 /* Celular: al final para que gane a las reglas base */
 @media(max-width:560px){.wrap{padding:0 16px}.navlinks{width:100%;justify-content:space-between}.navlinks a{padding:10px 8px;font-size:14px}.navlinks a.login{padding:10px 16px;font-size:15px}table{min-width:0}th,td{padding:10px 6px;font-size:13.5px}th:first-child,td:first-child{padding-left:12px;width:44%}thead th{font-size:15px}.sm{display:inline}.lg{display:none}.hero-btn{flex:1 1 100%;min-width:0}header{padding:44px 0 64px}.strip{padding:22px 20px}.plan{padding:24px 18px}.price strong{font-size:56px}}
 </style>
@@ -184,7 +185,7 @@ footer{padding:24px;text-align:center;font-size:14px;color:#C9C5BE}
 <h1>Tu taller, organizado en un solo sistema</h1>
 <p>Registra cada vehículo, cada orden de trabajo y cada dólar que entra. Desde la computadora o el celular, con acceso privado solo para tu taller.</p>
 <div class="tags" style="margin-top:28px">
-<a class="btn pill hero-btn" href="https://karenariasbme.github.io/zynthea-talleres/?registro=1" style="background:var(--accent);color:#fff">Probar demo gratis</a>
+<a class="btn pill hero-btn" href="#demo" style="background:var(--accent);color:#fff">Probar demo gratis</a>
 <a class="btn pill hero-btn hero-login" href="https://karenariasbme.github.io/zynthea-talleres/">Iniciar sesión</a>
 </div>
 <p style="margin-top:12px;font-size:14px;color:#B9B5AE">Sin tarjeta · Sin instalar nada · Tus datos se conservan al activar tu plan</p>
@@ -208,12 +209,9 @@ footer{padding:24px;text-align:center;font-size:14px;color:#C9C5BE}
 <h2 class="h2">Pruébalo gratis 7 días</h2>
 <div style="background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px 24px;display:flex;flex-direction:column;gap:24px">
 <div class="steps">
-<div class="step"><b>1</b><div><strong>Crea tu cuenta</strong><br><span>Con tu correo o con Google, en menos de un minuto.</span></div></div>
+<div class="step"><b>1</b><div><strong>Crea tu cuenta</strong><br><span><a href="https://karenariasbme.github.io/zynthea-talleres/?registro=1" style="font-weight:700">Regístrate aquí</a> con tu correo o con Google, en menos de un minuto.</span></div></div>
 <div class="step"><b>2</b><div><strong>Úsalo en tu taller</strong><br><span>Registra tus clientes, vehículos y órdenes de trabajo.</span></div></div>
 <div class="step"><b>3</b><div><strong>Activa tu plan</strong><br><span>Si te gusta, activa tu plan y sigues con los mismos datos.</span></div></div>
-</div>
-<div style="display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center">
-<a class="btn pill" href="https://karenariasbme.github.io/zynthea-talleres/?registro=1" style="background:var(--accent);color:#fff;font-size:17px;padding:16px 28px">Empezar mi prueba gratis</a>
 </div>
 <p class="sub" style="margin:0">La demo te deja probar las funciones del Plan Estándar.</p>
 </div>
@@ -297,11 +295,12 @@ footer{padding:24px;text-align:center;font-size:14px;color:#C9C5BE}
 <div class="price"><strong style="color:var(--accent-light)">$200</strong><span class="sub">pago único</span></div>
 <p style="margin:0;font-size:14px;font-weight:600">Todo lo del Profesional, más:</p>
 <ul class="chk">
-<li>App instalable en Android y iPhone con ícono del taller</li>
-<li>Varios usuarios con roles: dueño y mecánicos (el mecánico no ve ganancias)</li>
-<li>Lista de clientes con mantenimientos pendientes</li>
+<li>App instalable en Android y iPhone con ícono del taller <span class="prox">Próximamente</span></li>
+<li>Varios usuarios con roles: dueño y mecánicos (el mecánico no ve ganancias) <span class="prox">Próximamente</span></li>
+<li>Lista de clientes con mantenimientos pendientes <span class="prox">Próximamente</span></li>
 <li>Capacitación al personal del taller</li>
 </ul>
+<p class="reserva prem-reserva">Reserva tu plan: te activamos cada función apenas esté lista.</p>
 <div class="foot">Entrega: 15 días · Soporte: 2 meses</div>
 <a class="btn" href="#pagar" data-plan="PRE" style="background:var(--accent-light);color:var(--ink)">Comprar Premium</a>
 </article>
@@ -332,8 +331,8 @@ footer{padding:24px;text-align:center;font-size:14px;color:#C9C5BE}
 <tr><td>Respaldo diario automático</td><td>—</td><td>—</td><td>✓</td><td>✓</td></tr>
 <tr><td>Exportar todos los datos a Excel <span class="prox">Próx.</span></td><td>—</td><td>—</td><td>✓</td><td>✓</td></tr>
 <tr><td>Página de enlaces del taller</td><td>—</td><td>—</td><td>✓</td><td>✓</td></tr>
-<tr><td>App en el celular</td><td>—</td><td>—</td><td>—</td><td>✓</td></tr>
-<tr><td>Varios usuarios con roles</td><td>—</td><td>—</td><td>—</td><td>✓</td></tr>
+<tr><td>App en el celular <span class="prox">Próx.</span></td><td>—</td><td>—</td><td>—</td><td>✓</td></tr>
+<tr><td>Varios usuarios con roles <span class="prox">Próx.</span></td><td>—</td><td>—</td><td>—</td><td>✓</td></tr>
 <tr><td>Personalización a tu gusto (costo adicional)</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
 <tr><td><b>Precio</b></td><td><b>$60</b></td><td><b>$80</b></td><td><b style="color:var(--accent)">$100</b></td><td><b>$200</b></td></tr>
 </tbody>

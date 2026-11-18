@@ -41,7 +41,7 @@
     {
       "@type": "Offer",
       "name": "Plan Básico",
-      "description": "Pago único, sin mensualidades",
+      "description": "Pago único, sin mensualidades. Clientes, vehículos y órdenes de trabajo con código automático, ingreso y salida del vehículo, historial por placa y buscador.",
       "price": "60",
       "priceCurrency": "USD",
       "url": "https://karenariasbme.github.io/KarenArias/talleres/#planes",
@@ -50,7 +50,7 @@
     {
       "@type": "Offer",
       "name": "Plan Estándar",
-      "description": "Pago único, sin mensualidades",
+      "description": "Pago único, sin mensualidades. Todo lo del Básico, más: mano de obra y repuestos con IVA y total; presupuestos que se convierten en orden; orden y presupuesto en PDF por WhatsApp o correo; enlace de la orden para el cliente; kilometraje de ingreso; agenda con reservas en línea; reporte de ganancias del mes y Excel. Es lo que incluye la demo gratuita de 7 días.",
       "price": "80",
       "priceCurrency": "USD",
       "url": "https://karenariasbme.github.io/KarenArias/talleres/#planes",
@@ -59,7 +59,7 @@
     {
       "@type": "Offer",
       "name": "Plan Profesional",
-      "description": "Pago único, sin mensualidades",
+      "description": "Pago único, sin mensualidades. Todo lo del Estándar, más: página de enlaces del taller y respaldo diario automático. Próximamente (se activan al estar listas, sin costo adicional para quien reservó el plan): fotos del vehículo, gráficos de ingresos y ganancias, reporte por mecánico y clientes frecuentes, recordatorios de mantenimiento por WhatsApp, control de stock de repuestos y exportar todos los datos a Excel.",
       "price": "100",
       "priceCurrency": "USD",
       "url": "https://karenariasbme.github.io/KarenArias/talleres/#planes",
@@ -68,7 +68,7 @@
     {
       "@type": "Offer",
       "name": "Plan Premium",
-      "description": "Pago único, sin mensualidades",
+      "description": "Pago único, sin mensualidades. Todo lo del Profesional, más: app instalable en Android y iPhone, varios usuarios con roles, lista de clientes con mantenimientos pendientes y capacitación al personal.",
       "price": "200",
       "priceCurrency": "USD",
       "url": "https://karenariasbme.github.io/KarenArias/talleres/#planes",
@@ -97,6 +97,11 @@ nav .wrap{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-conten
 .navlinks{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
 .navlinks a{color:var(--ground);text-decoration:none;padding:12px 14px;font-size:15px}
 .navlinks a.wa{background:var(--accent-light);color:var(--ink);border-radius:999px;font-weight:700;padding:12px 18px}
+.navlinks a.login{background:#fff;color:var(--ink);border-radius:999px;font-weight:800;padding:12px 22px;font-size:16px;box-shadow:0 0 0 2px var(--accent-light)}
+.navlinks a.login:hover{background:var(--accent-light)}
+.hero-btn{font-size:17px;padding:16px 30px;min-width:220px}
+.hero-login{background:transparent;color:#fff;border:2px solid #fff}
+.hero-login:hover{background:#fff;color:var(--ink)}
 header{padding:64px 0 80px}
 header h1{margin:16px 0;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(44px,7vw,88px);line-height:.95;text-transform:uppercase;max-width:920px}
 header p{margin:0;font-size:19px;line-height:1.55;max-width:720px;color:#D6D3CD}
@@ -147,6 +152,11 @@ thead th{font-family:'Barlow Condensed',sans-serif;font-size:20px;text-transform
 section{padding:64px 0 16px}
 footer{padding:24px;text-align:center;font-size:14px;color:#C9C5BE}
 .sr{position:absolute;left:-9999px}
+.sm{display:none}
+.prox{display:inline-block;vertical-align:1px;margin-left:4px;padding:1px 8px;border-radius:999px;background:#FFF1E6;color:var(--accent-dark);border:1px solid #F6C9A8;font-size:11px;font-weight:700;letter-spacing:.03em;white-space:nowrap}
+.reserva{margin:0;padding:10px 12px;border-radius:10px;background:#FFF1E6;color:var(--accent-dark);font-size:13.5px;font-weight:600;line-height:1.4}
+/* Celular: al final para que gane a las reglas base */
+@media(max-width:560px){.wrap{padding:0 16px}.navlinks{width:100%;justify-content:space-between}.navlinks a{padding:10px 8px;font-size:14px}.navlinks a.login{padding:10px 16px;font-size:15px}table{min-width:0}th,td{padding:10px 6px;font-size:13.5px}th:first-child,td:first-child{padding-left:12px;width:44%}thead th{font-size:15px}.sm{display:inline}.lg{display:none}.hero-btn{flex:1 1 100%;min-width:0}header{padding:44px 0 64px}.strip{padding:22px 20px}.plan{padding:24px 18px}.price strong{font-size:56px}}
 </style>
 </head>
 <body>
@@ -162,7 +172,7 @@ footer{padding:24px;text-align:center;font-size:14px;color:#C9C5BE}
 <a href="#planes">Planes</a>
 <a href="#personalizar">Personalizar</a>
 <a href="#pagar">Pagar</a>
-<a class="wa" href="https://karenariasbme.github.io/zynthea-talleres/?registro=1" style="background:var(--accent);color:#fff">Prueba gratis</a>
+<a class="login" href="https://karenariasbme.github.io/zynthea-talleres/">Iniciar sesión</a>
 <a class="wa" href="https://wa.me/593967857347?text=Hola%20Karen%2C%20tengo%20dudas%20sobre%20el%20Sistema%20para%20Talleres.">WhatsApp</a>
 </div>
 </div>
@@ -174,9 +184,8 @@ footer{padding:24px;text-align:center;font-size:14px;color:#C9C5BE}
 <h1>Tu taller, organizado en un solo sistema</h1>
 <p>Registra cada vehículo, cada orden de trabajo y cada dólar que entra. Desde la computadora o el celular, con acceso privado solo para tu taller.</p>
 <div class="tags" style="margin-top:28px">
-<a class="btn pill" href="https://karenariasbme.github.io/zynthea-talleres/?registro=1" style="background:var(--accent);color:#fff">Probar gratis 7 días</a>
-<a class="btn pill" href="#planes" style="background:var(--accent-light);color:var(--ink)">Ver planes y precios</a>
-<a class="btn pill" href="https://wa.me/593967857347?text=Hola%20Karen%2C%20tengo%20dudas%20sobre%20el%20Sistema%20para%20Talleres." style="border:1px solid #6B7078;color:var(--ground)">Tengo dudas</a>
+<a class="btn pill hero-btn" href="https://karenariasbme.github.io/zynthea-talleres/?registro=1" style="background:var(--accent);color:#fff">Probar demo gratis</a>
+<a class="btn pill hero-btn hero-login" href="https://karenariasbme.github.io/zynthea-talleres/">Iniciar sesión</a>
 </div>
 <p style="margin-top:12px;font-size:14px;color:#B9B5AE">Sin tarjeta · Sin instalar nada · Tus datos se conservan al activar tu plan</p>
 <div class="tags">
@@ -194,15 +203,6 @@ footer{padding:24px;text-align:center;font-size:14px;color:#C9C5BE}
 <div><strong>Pago único</strong><span>Sin costos mensuales de servidor</span></div>
 </div>
 
-<section>
-<p class="eyebrow">Cómo funciona</p>
-<div class="steps">
-<div class="step"><b>1</b><div><strong>Elige tu plan</strong><br><span>Según lo que necesita tu taller hoy. Puedes subir de plan después.</span></div></div>
-<div class="step"><b>2</b><div><strong>Paga como prefieras</strong><br><span>Tarjeta de crédito o débito, o transferencia bancaria con tu código.</span></div></div>
-<div class="step"><b>3</b><div><strong>Recibe tu sistema</strong><br><span>Te contacto por WhatsApp, lo configuro con los datos de tu taller y te lo entrego listo.</span></div></div>
-</div>
-</section>
-
 <section id="demo">
 <p class="eyebrow">Demo gratuita</p>
 <h2 class="h2">Pruébalo gratis 7 días</h2>
@@ -214,11 +214,21 @@ footer{padding:24px;text-align:center;font-size:14px;color:#C9C5BE}
 </div>
 <div style="display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center">
 <a class="btn pill" href="https://karenariasbme.github.io/zynthea-talleres/?registro=1" style="background:var(--accent);color:#fff;font-size:17px;padding:16px 28px">Empezar mi prueba gratis</a>
-<a href="https://karenariasbme.github.io/zynthea-talleres/" style="font-weight:600;padding:12px 0">¿Ya tienes cuenta? Inicia sesión</a>
 </div>
-<p class="sub" style="margin:0">La demo incluye las funciones del Plan Básico.</p>
+<p class="sub" style="margin:0">La demo te deja probar las funciones del Plan Estándar.</p>
 </div>
 </section>
+
+<section>
+<p class="eyebrow">Cómo funciona</p>
+<div class="steps">
+<div class="step"><b>1</b><div><strong>Elige tu plan</strong><br><span>Según lo que necesita tu taller hoy. Puedes subir de plan después.</span></div></div>
+<div class="step"><b>2</b><div><strong>Paga como prefieras</strong><br><span>Tarjeta de crédito o débito, o transferencia bancaria con tu código.</span></div></div>
+<div class="step"><b>3</b><div><strong>Recibe tu sistema</strong><br><span>Te contacto por WhatsApp, lo configuro con los datos de tu taller y te lo entrego listo.</span></div></div>
+</div>
+</section>
+
+
 
 <section id="planes">
 <p class="eyebrow">Planes</p>
@@ -236,13 +246,12 @@ footer{padding:24px;text-align:center;font-size:14px;color:#C9C5BE}
 <li>Mantenimiento preventivo o correctivo</li>
 <li>Fecha y hora de ingreso y de salida</li>
 <li>Motivo y descripción del trabajo</li>
-<li>Observación de cómo llegó y cómo se va el vehículo</li>
+<li>Estado del vehículo al ingreso y salida del vehículo</li>
 <li>Historial completo por placa</li>
 <li>Buscador por placa o por cliente</li>
 </ul>
 <div class="foot">Entrega: 5 días · Soporte: 15 días</div>
 <a class="btn" href="#pagar" data-plan="BAS" style="background:var(--ink);color:#fff">Comprar Básico</a>
-<a href="https://karenariasbme.github.io/zynthea-talleres/?registro=1" style="align-self:center;margin-top:-8px;font-size:14px;font-weight:600;padding:6px 0">o pruébalo gratis 7 días</a>
 </article>
 
 <article class="plan">
@@ -250,11 +259,13 @@ footer{padding:24px;text-align:center;font-size:14px;color:#C9C5BE}
 <div class="price"><strong>$80</strong><span class="sub">pago único</span></div>
 <p style="margin:0;font-size:14px;font-weight:600">Todo lo del Básico, más:</p>
 <ul class="chk">
-<li>Valores por orden: mano de obra, repuestos y total</li>
-<li>Estado de la orden: abierta, en proceso o entregada</li>
+<li>Mano de obra y repuestos en cada orden, con IVA y total</li>
+<li>Presupuestos (PR-0001) que se convierten en orden de trabajo</li>
+<li>Enviar la orden y el presupuesto en PDF por WhatsApp o correo</li>
+<li>Enlace de la orden para el cliente</li>
 <li>Kilometraje de ingreso</li>
-<li>Reporte de ganancias del mes</li>
-<li>Exportar información a Excel</li>
+<li>Agenda con reservas en línea</li>
+<li>Reporte de ganancias del mes y Excel</li>
 </ul>
 <div class="foot">Entrega: 7 días · Soporte: 1 mes</div>
 <a class="btn" href="#pagar" data-plan="EST" style="background:var(--ink);color:#fff">Comprar Estándar</a>
@@ -262,17 +273,20 @@ footer{padding:24px;text-align:center;font-size:14px;color:#C9C5BE}
 
 <article class="plan rec">
 <span class="badge" style="background:var(--accent);color:#fff">Recomendado</span>
-<div><h3>Profesional</h3><span class="sub">Ganancias claras y evidencia en fotos</span></div>
+<div><h3>Profesional</h3><span class="sub">Control completo del taller</span></div>
 <div class="price"><strong style="color:var(--accent)">$100</strong><span class="sub">pago único</span></div>
 <p style="margin:0;font-size:14px;font-weight:600">Todo lo del Estándar, más:</p>
 <ul class="chk">
-<li>Fotos del vehículo al ingresar y al salir</li>
-<li>Costo de repuestos para calcular la ganancia real</li>
-<li>Panel de ganancias con gráficos por día, mes y tipo de servicio</li>
-<li>Orden de trabajo imprimible en PDF con el logo del taller</li>
-<li>Filtros por fecha, tipo de mantenimiento y estado</li>
-<li>Respaldo automático semanal de la información</li>
+<li>Fotos del vehículo al ingresar y al salir <span class="prox">Próximamente</span></li>
+<li>Gráficos de ingresos y ganancias por mes <span class="prox">Próximamente</span></li>
+<li>Reporte por mecánico y por tipo de trabajo, y clientes frecuentes <span class="prox">Próximamente</span></li>
+<li>Recordatorio del próximo mantenimiento por kilometraje o fecha: aviso en el sistema y botón para enviarlo por WhatsApp <span class="prox">Próximamente</span></li>
+<li>Control de stock básico de repuestos <span class="prox">Próximamente</span></li>
+<li>Respaldo diario automático</li>
+<li>Exportar todos los datos a Excel <span class="prox">Próximamente</span></li>
+<li>Página de enlaces del taller incluida: reservar turno, WhatsApp, ubicación y TikTok</li>
 </ul>
+<p class="reserva">Reserva tu plan: te activamos cada función apenas esté lista.</p>
 <div class="foot">Entrega: 10 días · Soporte: 1 mes</div>
 <a class="btn" href="#pagar" data-plan="PRO" style="background:var(--accent);color:#fff">Comprar Profesional</a>
 </article>
@@ -285,8 +299,6 @@ footer{padding:24px;text-align:center;font-size:14px;color:#C9C5BE}
 <ul class="chk">
 <li>App instalable en Android y iPhone con ícono del taller</li>
 <li>Varios usuarios con roles: dueño y mecánicos (el mecánico no ve ganancias)</li>
-<li>Envío de la orden de trabajo al cliente por WhatsApp</li>
-<li>Recordatorio del próximo mantenimiento por fecha o kilometraje</li>
 <li>Lista de clientes con mantenimientos pendientes</li>
 <li>Capacitación al personal del taller</li>
 </ul>
@@ -302,19 +314,26 @@ footer{padding:24px;text-align:center;font-size:14px;color:#C9C5BE}
 <h2 class="h2" style="font-size:clamp(30px,4vw,44px);margin-bottom:24px">Compara rápido</h2>
 <div class="tablebox">
 <table>
-<thead><tr><th>Función</th><th>Básico</th><th>Estándar</th><th style="color:var(--accent)">Profesional</th><th>Premium</th></tr></thead>
+<thead><tr><th>Función</th><th><span class="lg">Básico</span><span class="sm">Bás.</span></th><th><span class="lg">Estándar</span><span class="sm">Est.</span></th><th style="color:var(--accent)"><span class="lg">Profesional</span><span class="sm">Pro</span></th><th><span class="lg">Premium</span><span class="sm">Prem.</span></th></tr></thead>
 <tbody>
 <tr><td>Clientes, vehículos y órdenes con código</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
 <tr><td>Ingreso, salida y observaciones del vehículo</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
 <tr><td>Historial por placa</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
-<tr><td>Valores y reporte de ganancias del mes</td><td>—</td><td>✓</td><td>✓</td><td>✓</td></tr>
-<tr><td>Exportar a Excel</td><td>—</td><td>✓</td><td>✓</td><td>✓</td></tr>
-<tr><td>Fotos del vehículo</td><td>—</td><td>—</td><td>✓</td><td>✓</td></tr>
-<tr><td>Gráficos de ganancias y orden en PDF</td><td>—</td><td>—</td><td>✓</td><td>✓</td></tr>
-<tr><td>Respaldo automático</td><td>—</td><td>—</td><td>✓</td><td>✓</td></tr>
+<tr><td>Mano de obra y repuestos con IVA y total</td><td>—</td><td>✓</td><td>✓</td><td>✓</td></tr>
+<tr><td>Presupuestos que se convierten en orden</td><td>—</td><td>✓</td><td>✓</td><td>✓</td></tr>
+<tr><td>Orden en PDF y envío por WhatsApp</td><td>—</td><td>✓</td><td>✓</td><td>✓</td></tr>
+<tr><td>Agenda y reservas en línea</td><td>—</td><td>✓</td><td>✓</td><td>✓</td></tr>
+<tr><td>Reporte de ganancias del mes y Excel</td><td>—</td><td>✓</td><td>✓</td><td>✓</td></tr>
+<tr><td>Fotos del vehículo <span class="prox">Próx.</span></td><td>—</td><td>—</td><td>✓</td><td>✓</td></tr>
+<tr><td>Gráficos de ingresos y ganancias <span class="prox">Próx.</span></td><td>—</td><td>—</td><td>✓</td><td>✓</td></tr>
+<tr><td>Reporte por mecánico y clientes frecuentes <span class="prox">Próx.</span></td><td>—</td><td>—</td><td>✓</td><td>✓</td></tr>
+<tr><td>Recordatorios de mantenimiento <span class="prox">Próx.</span></td><td>—</td><td>—</td><td>✓</td><td>✓</td></tr>
+<tr><td>Stock de repuestos <span class="prox">Próx.</span></td><td>—</td><td>—</td><td>✓</td><td>✓</td></tr>
+<tr><td>Respaldo diario automático</td><td>—</td><td>—</td><td>✓</td><td>✓</td></tr>
+<tr><td>Exportar todos los datos a Excel <span class="prox">Próx.</span></td><td>—</td><td>—</td><td>✓</td><td>✓</td></tr>
+<tr><td>Página de enlaces del taller</td><td>—</td><td>—</td><td>✓</td><td>✓</td></tr>
 <tr><td>App en el celular</td><td>—</td><td>—</td><td>—</td><td>✓</td></tr>
 <tr><td>Varios usuarios con roles</td><td>—</td><td>—</td><td>—</td><td>✓</td></tr>
-<tr><td>WhatsApp y recordatorios de mantenimiento</td><td>—</td><td>—</td><td>—</td><td>✓</td></tr>
 <tr><td>Personalización a tu gusto (costo adicional)</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
 <tr><td><b>Precio</b></td><td><b>$60</b></td><td><b>$80</b></td><td><b style="color:var(--accent)">$100</b></td><td><b>$200</b></td></tr>
 </tbody>
@@ -333,6 +352,7 @@ footer{padding:24px;text-align:center;font-size:14px;color:#C9C5BE}
 <li>Colores, logo y nombre de tu taller en todo el sistema</li>
 <li>Campos propios en clientes, vehículos y órdenes</li>
 <li>Formato de la orden de trabajo y del PDF con tu diseño</li>
+<li>Página de enlaces de tu taller con tu logo y colores: reservar turno, WhatsApp, ubicación y TikTok en un solo link (incluida en el Profesional)</li>
 <li>Reportes a la medida de lo que necesitas ver</li>
 <li>Funciones nuevas que tu taller necesite</li>
 </ul>
@@ -403,7 +423,6 @@ footer{padding:24px;text-align:center;font-size:14px;color:#C9C5BE}
 <p style="margin:0;font-size:16px;line-height:1.55">Escríbeme y te explico qué plan le conviene a tu taller. Puedes subir de plan en cualquier momento pagando solo la diferencia.</p>
 <div style="display:flex;flex-wrap:wrap;gap:12px">
 <a class="btn pill" href="https://wa.me/593967857347?text=Hola%20Karen%2C%20tengo%20dudas%20sobre%20el%20Sistema%20para%20Talleres." style="background:#fff;color:var(--accent-dark)">Escribir por WhatsApp</a>
-<a class="btn pill" href="https://karenariasbme.github.io/zynthea-talleres/?registro=1" style="background:var(--ink);color:#fff">Probar gratis</a>
 </div>
 </div>
 <div style="flex:0 1 320px;display:flex;flex-direction:column;gap:6px;font-size:15px">

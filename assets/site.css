@@ -140,6 +140,7 @@ h2{font-family:var(--font-d);font-weight:600;font-size:clamp(26px,3.4vw,36px);co
 .service-cta:hover{color:var(--pulse);}
 .service.featured{background:var(--white);}
 .service-badge{display:inline-block;font-family:var(--font-m);font-size:11px;letter-spacing:.08em;text-transform:uppercase;background:var(--pulse-soft);color:var(--teal);padding:4px 9px;border-radius:3px;margin-bottom:14px;}
+h2.group-title{font-weight:400;line-height:normal;}
 .group-title{font-family:var(--font-m);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin:44px 0 16px;}
 .group-title:first-child{margin-top:0;}
 
@@ -156,7 +157,7 @@ h2{font-family:var(--font-d);font-weight:600;font-size:clamp(26px,3.4vw,36px);co
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:8px;}
 .step{border-top:2px solid var(--pulse);padding-top:16px;}
 .step b{font-family:var(--font-m);font-size:12.5px;color:var(--pulse);}
-.step h4{font-family:var(--font-d);font-size:17px;color:var(--teal);margin:6px 0;}
+.step h4,.step .step-h{font-family:var(--font-d);font-size:17px;color:var(--teal);margin:6px 0;}
 .step p{font-size:13.5px;color:var(--ink-soft);}
 
 /* ---------- WHATSAPP FLOTANTE ---------- */
@@ -207,7 +208,8 @@ a.cert span:first-child{text-decoration:underline;text-decoration-color:var(--li
 a.cert:hover span:first-child{text-decoration-color:var(--pulse);}
 .cert span:last-child{font-family:var(--font-m);font-size:12.5px;color:var(--ink-soft);white-space:nowrap;}
 .skill-row{margin-bottom:22px;}
-.skill-row h4{font-family:var(--font-m);font-size:12.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--pulse);margin-bottom:10px;}
+h2.skill-h{font-weight:700;line-height:normal;}
+.skill-row h4,.skill-row .skill-h{font-family:var(--font-m);font-size:12.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--pulse);margin-bottom:10px;}
 .skill-row p{font-size:15px;color:var(--ink-soft);}
 
 /* ---------- SUB-TABS (dentro de un modal) ---------- */
@@ -312,12 +314,13 @@ footer{padding:36px 0;border-top:1px solid var(--line);}
 .login-pop a:hover{background:var(--paper-alt);}
 .login-pop a b{font-weight:600;font-size:15px;color:var(--teal);}
 .login-pop a span{font-size:13px;color:var(--ink-soft);}
+/* Solo en páginas con "Iniciar sesión" (servicios): el botón empuja a la derecha en lugar de "Cotizar" */
 @media (max-width:1060px){
   .login-menu{margin-left:auto;}
-  .nav-cta{margin-left:0;}
+  .login-menu + .nav-cta{margin-left:0;}
 }
 @media (max-width:860px){
-  .burger{margin-left:0;}
+  .login-menu ~ .burger{margin-left:0;}
 }
 @media (max-width:480px){
   .nav{padding-left:16px;padding-right:16px;gap:8px;}

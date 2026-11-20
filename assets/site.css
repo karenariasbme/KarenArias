@@ -292,45 +292,9 @@ footer{padding:36px 0;border-top:1px solid var(--line);}
 .solution-price b{font-family:var(--font-d);font-size:24px;color:var(--teal);margin-left:4px;}
 
 
-/* ---------- INICIAR SESIÓN (selector de sistema) ---------- */
-.login-menu{position:relative;flex-shrink:0;}
-.nav-login{
-  display:inline-flex;align-items:center;gap:7px;
-  font-family:var(--font-m);font-size:13.5px;white-space:nowrap;
-  background:var(--white);color:var(--teal);
-  padding:8px 14px;border-radius:3px;border:1px solid var(--teal);cursor:pointer;
-}
-.nav-login svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;}
-.nav-login:hover,.nav-login[aria-expanded="true"]{background:var(--pulse-soft);}
-.nav-login:focus-visible,.login-pop a:focus-visible{outline:2px solid var(--pulse);outline-offset:2px;}
-.login-pop{
-  position:absolute;right:0;top:calc(100% + 10px);z-index:60;
-  width:280px;max-width:calc(100vw - 32px);
-  background:var(--white);border:1px solid var(--line);border-radius:6px;
-  box-shadow:0 12px 32px rgba(14,31,27,.14);padding:8px;
-}
-.login-pop-title{font-family:var(--font-m);font-size:12px;color:var(--ink-soft);padding:8px 10px 6px;margin:0;}
-.login-pop a{display:flex;flex-direction:column;gap:2px;padding:10px;border-radius:4px;color:var(--ink);}
-.login-pop a:hover{background:var(--paper-alt);}
-.login-pop a b{font-weight:600;font-size:15px;color:var(--teal);}
-.login-pop a span{font-size:13px;color:var(--ink-soft);}
-/* Solo en páginas con "Iniciar sesión" (servicios): el botón empuja a la derecha en lugar de "Cotizar" */
-@media (max-width:1060px){
-  .login-menu{margin-left:auto;}
-  .login-menu + .nav-cta{margin-left:0;}
-}
-@media (max-width:860px){
-  .login-menu ~ .burger{margin-left:0;}
-}
-@media (max-width:480px){
-  .nav{padding-left:16px;padding-right:16px;gap:8px;}
-  .logo{font-size:15px;gap:8px;}
-  .nav-login{font-size:12.5px;padding:7px 10px;gap:5px;}
-  .nav-login svg{display:none;}
-}
-@media (max-width:340px){
-  .logo{font-size:0;}
-}
+/* ---------- "¿Ya eres cliente? Inicia sesión" en la tarjeta de Talleres (servicios) ---------- */
+.solution-login{display:block;margin-top:10px;font-size:13px;color:var(--ink-soft);text-decoration:underline;text-underline-offset:2px;}
+.highlight:hover .solution-login{color:var(--teal);}
 
 
 /* ---------- SEO: H1 de páginas interiores (mismo aspecto que el título de sección) ---------- */
